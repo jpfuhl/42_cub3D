@@ -6,7 +6,7 @@
 #    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/06 19:07:23 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/06 19:47:18 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,19 @@ CFLAGS		=	-Wall -Wextra -Werror
 
 S			=	src/
 O			=	obj/
+E			=	error/
+M			=	memory/
 # P			=	parser/
-# N			=	get_next_line/
-# E			=	error/
 
  #move get_next_line to libft ?
 OBJS		=	$(patsubst $S%.c, $O%.o, $(SRCS))
 SRCS		=	$Smain.c \
+				$S$Eexit_with_error.c \
+				$S$Mdata.c \
+				$S$Mmap.c \
+				$S$Mplayer.c \
+				$S$Mwindow.c \
+
 
 
 # MLX = -Lminilibx -lmlx -framework OpenGL -framework AppKit
@@ -44,6 +50,8 @@ $(NAME):	libft/libft.a libmlx/libmlx.a $(OBJS)
 # Compiling...
 $O%.o:		$S%.c
 			@[ -d $(O) ]	 || mkdir -p $(O)
+			@[ -d $(O)$(E) ] || mkdir -p $(O)$(E)
+			@[ -d $(O)$(M) ] || mkdir -p $(O)$(M)
 			@echo "\033[1;32m$(NAME) ʕ·͡ᴥ·ʔ\033[1;0m\033[32m compiling...\033[0m"
 			@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 

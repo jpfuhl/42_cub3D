@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:22:56 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/06 19:28:24 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/06 19:44:51 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ t_window	*create_window(void)
 	window = malloc(sizeof(t_window));
 	if (!window)
 		exit_with_error(MALLOC_ERROR);
-	window->screen = malloc(sizeof(t_image));
-	if (!window->screen)
-		exit_with_error(MALLOC_ERROR);
+	window->screen = create_image();
+	window->map = create_image();
+	window->minimap = create_image();
 	return (window);
 }
