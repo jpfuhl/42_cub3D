@@ -5,7 +5,8 @@
 # include "../libft/includes/libft.h"
 # include "../libmlx/mlx.h"
 # include "structs.h"
-// # include "error.h"
+# include "error.h"
+# include "memory.h"
 
 # include <stdbool.h>
 # include <stdio.h>
