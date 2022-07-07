@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:36:04 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/07 15:13:19 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/07 18:37:13 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,32 @@ void	set_texture(t_map *map, int type, char *line)
 
 	if (map->elements[type].set)
 		exit_with_error(DUPLICATE_ELEMENT_ERROR);
-	map->elements[type].path = parse_path(line);
+	// map->elements[type].path = parse_path(line);
+	path = parse_path(line);
+	map->elements[type].texture = resize_texture();
 	// open image;
 	// resize image;
 	map->elements[type].set = true;
 	fprintf(stderr, "%d %s\n", type, line);
+	free(path);
 }
+
+
+
+// void	*get_image(t_window *info, char *path)
+// {
+// 	int		pos[2];
+// 	void	*img;
+
+// 	img = mlx_xpm_file_to_image(info->mlx, path, &pos[0], &pos[1]);
+// 	return (img); // done that
+// }
+
+
+// info->data->elements[k].img = get_image(info, info->data->elements[k].path);
+// work with tmp
+
+
+// put resize to render??
+
+// resize_texture separate

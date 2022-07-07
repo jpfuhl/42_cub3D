@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:22:56 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/06 19:50:10 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/07 14:54:06 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	default_initialize_map(t_map *map)
 {
 	int	i;
 
-	map->file_name = NULL;
 	map->cub = NULL;
 	i = 0;
 	while (i < 6)

@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:35:29 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/07 15:06:12 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/07 15:28:38 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	check_element(t_map *map, char *line)
 		exit_with_error(ELEMENT_IDENTIFIER_ERROR);
 }
 
-static	set_element(t_map *map, char *line)
+static void	set_element(t_map *map, char *line)
 {
 	int	i;
 

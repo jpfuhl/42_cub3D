@@ -6,7 +6,7 @@
 #    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/07 14:56:33 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/07 15:27:20 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,13 @@ SRCS		=	$Smain.c \
 				$S$Mplayer.c \
 				$S$Mwindow.c \
 				$S$Pcheck_cub_file_extension.c \
+				$S$Pconvert_rgb_to_hex.c \
 				$S$Pcreate_cub_array.c \
 				$S$Plaunch_parser.c \
+				$S$Pparse_elements.c \
 				$S$Pread_cub_file.c \
+				$S$Pset_colour.c \
+				$S$Pset_texture.c \
 
 
 

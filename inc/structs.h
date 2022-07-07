@@ -79,7 +79,7 @@ typedef struct s_window
 typedef struct s_element
 {
 	bool	set;
-	char	*path;
+	char	*path; // remove
 	void	*texture;
 	int		r;
 	int		g;
