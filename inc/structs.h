@@ -3,6 +3,21 @@
 
 # include <stdbool.h>
 
+# define WINDOW_WIDTH	1024
+# define WINDOW_HEIGHT	1024
+# define PI				3.141592
+
+enum e_texture_type
+{
+	DEFAULT = -1,
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST,
+	FLOOR,
+	CEILING
+};
+
 /*	POINT OR VECTOR */
 typedef struct s_xy
 {
@@ -86,7 +101,6 @@ typedef struct s_tile
 
 typedef struct s_map
 {
-	char		*file_name;
 	char		**cub;
 	t_element	*elements;
 	int			width;

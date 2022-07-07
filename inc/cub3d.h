@@ -7,6 +7,7 @@
 # include "structs.h"
 # include "error.h"
 # include "memory.h"
+# include "parser.h"
 
 # include <stdbool.h>
 # include <stdio.h>
@@ -24,20 +25,7 @@
 // parsing.h
 // rendering.h
 
-# define WINDOW_WIDTH	1024
-# define WINDOW_HEIGHT	1024
-# define PI				3.141592
 
-enum e_texture_type
-{
-	DEFAULT = -1,
-	NORTH,
-	SOUTH,
-	WEST,
-	EAST,
-	FLOOR,
-	CEILING
-};
 
 
 
