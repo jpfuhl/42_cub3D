@@ -1,10 +1,10 @@
-NO      textures/gal1.xpm
-WE      textures/gal2.xpm
-SO      textures/gal1.xpm
-EA      textures/gal2.xpm
+NO      textures/wall1.xpm
+WE      textures/wall2.xpm
+SO      textures/wall3.xpm
+EA      textures/wall4.xpm
 
-F 	127,205,252
-C 	60,59,95
+F   127,205,252
+C   60,59,95
 
 
 111111111111

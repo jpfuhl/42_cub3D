@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:21:17 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/07 14:17:51 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/08 18:19:04 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	main(int argc, char **argv)
 	data = create_data();
 	fprintf(stderr, "Created data! whoosh %p\n", data);
 	data->mlx = mlx_init();
-	launch_parser(data->map, argv[1]);
-	fprintf(stderr, "Parsed data! whoosh\n");
+	launch_parser(data, data->map, argv[1]);
 	free_data(data);
 	fscanf(stdin, "c");
 	return (0);
