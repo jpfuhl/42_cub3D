@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_cub_file.c                                    :+:      :+:    :+:   */
+/*   get_resized_texture.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 18:35:49 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 17:59:25 by jpfuhl           ###   ########.fr       */
+/*   Created: 2022/07/07 18:38:25 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/08 16:08:55 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/parser.h"
 
-void	read_cub_file(t_map *map, char *file_name)
+t_image	*get_resized_texture(void *mlx, char *path)
 {
-	int		fd;
-	int		i;
-	char	*line;
+	int		pos[2];
+	void	*tmp;
+	// void	*texture;
 
-	fd = open(file_name, O_RDONLY);
-	if (fd == -1)
-		exit_with_error(CUB_OPENING_ERROR);
-	i = 0;
-	line = "";
-	while (line)
-	{
-		line = get_next_line(fd);
-		map->cub[i] = line;
-		i++;
-	}
+	tmp = mlx_xpm_file_to_image(mlx, path, &pos[0], &pos[1]);
+	// resize_image();
+	return (tmp);
 }

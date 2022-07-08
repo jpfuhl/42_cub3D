@@ -6,11 +6,11 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:35:52 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/07 15:22:51 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/08 17:35:29 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/cub3d.h"
+#include "../../inc/parser.h"
 
 static bool	check_digits(char *value)
 {
@@ -20,7 +20,7 @@ static bool	check_digits(char *value)
 	while (value[i] != '\0')
 	{
 		if (value[i] < '0' || '9' < value[i])
-			exit_with_error(RGB_NAN_ERROR);
+			exit_with_error(RGB_NAN);
 		i++;
 	}
 	return (true);
@@ -43,7 +43,7 @@ static int	set_number(char *value)
 	check_digits(split[0]);
 	number = ft_atoi(split[0]);
 	if (number < 0 || 255 < number)
-		exit_with_error(RGB_RANGE_ERROR);
+		exit_with_error(RGB_INVALID_RANGE);
 	i = 0;
 	while (split[i])
 	{
@@ -100,7 +100,7 @@ void	set_colour(t_map *map, int type, char *line)
 	int		i;
 
 	if (map->elements[type].set)
-		exit_with_error(DUPLICATE_ELEMENT_ERROR);
+		exit_with_error(DUPLICATE_COLOUR);
 	check_commas(line);
 	split = ft_split(line, ',');
 	i = 0;

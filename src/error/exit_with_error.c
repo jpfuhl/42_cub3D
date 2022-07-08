@@ -6,11 +6,39 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:36:07 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/06 19:35:32 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/08 18:18:24 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/error.h"
+
+static void	print_element_error_message(int type)
+{
+	if (type == ELEMENT_IDENTIFIER_ERROR)
+		printf("Invalid element identifier.\n");
+	else if (type == TEXTURE_ARGUMENT_ERROR)
+		printf("Invalid texture arguments.\n");
+	else if (type == DUPLICATE_TEXTURE)
+		printf("Duplicate texture found.\n");
+	else if (type == XPM_EXTENSION_ERROR)
+		printf("Texture file with invalid extension.\n");
+	else if (type == TEXTURE_ARGUMENT_ERROR)
+		printf("No texture file found.\n");
+	else if (type == TEXTURE_OPENING_ERROR)
+		printf("Failed to open texture file.\n");
+	else if (type == TEXTURE_INVALID_CONTENT)
+		printf("Texture file is empty or contains junk.\n");
+	else if (type == DUPLICATE_COLOUR)
+		printf("Duplicate colour found.\n");
+	else if (type == RGB_ARGUMENT_ERROR)
+		printf("Invalid colour arguments.\n");
+	else if (type == RGB_EMPTY_VALUE)
+		printf("Missing RGB value(s).\n");
+	else if (type == RGB_NAN)
+		printf("Non-numerical RGB value(s).\n");
+	else if (type == RGB_INVALID_RANGE)
+		printf("One or more RGB values are out of range.\n");
+}
 
 static void	print_map_error_message(int type)
 {
@@ -32,38 +60,24 @@ static void	print_error_message(int type)
 {
 	if (type == MALLOC_ERROR)
 		printf("Failed to allocate memory with malloc.\n");
-	else if (type == FILE_OPENING_ERROR)
-		printf("Failed to open .cub file.\n");
-	else if (type == EMPTY_FILE_ERROR)
-		printf("Empty .cub file.\n");
-	else if (type == ELEMENT_ARGUMENT_ERROR)
-		printf("Invalid element arguments.\n");
-	else if (type == ELEMENT_TYPE_ERROR)
-		printf("Invalid element type.\n");
-	else if (type == DUPLICATE_ELEMENT_ERROR)
-		printf("Duplicate element type.\n");
-	else if (type == TEXTURE_PATH_ERROR)
-		printf("Failed to open texture path.\n");
-	else if (type == RGB_NAN_ERROR)
-		printf("Non-numerical RGB values.\n");
-	else if (type == RGB_RANGE_ERROR)
-		printf("RGB values are out of range.\n");
-	else if (-7 < type && type < 0)
-		print_map_error_message(type);
+	else if (type == ARGV_ERROR)
+		printf("Wrong number of command line arguments.\n");
+	else if (type == CUB_EXTENSION_ERROR)
+		printf("Cub3D file with invalid extension.\n");
+	else if (type == CUB_EMPTY_FILE)
+		printf("Empty Cub3D file.\n");
+	else if (type == CUB_OPENING_ERROR)
+		printf("Failed to open Cub3D file.\n");
 }
 
-void	exit_with_error(int	type)
+void	exit_with_error(int type)
 {
 	printf("Error!\n");
-	//	if -1 - -4 ?
-	print_error_message(type);
-	// if element <>
-	// print_element_error_message;
-	// if map <>
-	// print_map_error_message;
+	if (-6 < type && type < 0)
+		print_error_message(type);
+	else if (-12 < type && type < -5)
+		print_map_error_message(type);
+	else if (-24 < type && type < -11)
+		print_element_error_message(type);
 	exit(type);
 }
-
-
-// element_error
-// map_error

@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:36:04 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/07 18:37:13 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/08 18:18:04 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static bool	check_path(char *path)
 	check_xpm_file_extension(path);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		exit_with_error(TEXTURE_PATH_ERROR);
+		exit_with_error(TEXTURE_OPENING_ERROR);
 	close (fd);
 	return (true);
 }
@@ -64,7 +64,7 @@ static char	*get_path(char *line)
 	while (split[i])
 		i += 1;
 	if (i != 1)
-		exit_with_error(ELEMENT_ARGUMENT_ERROR);
+		exit_with_error(TEXTURE_ARGUMENT_ERROR);
 	path = ft_strdup(split[0]);
 	if (!path)
 		exit_with_error(MALLOC_ERROR);
@@ -95,27 +95,24 @@ static char	*parse_path(char *line)
 		i++;
 	}
 	if (line[i] == '\0')
-		exit_with_error(EMPTY_PATH);
+		exit_with_error(TEXTURE_EMPTY_PATH);
 	return (path);
 }
 
-void	set_texture(t_map *map, int type, char *line)
+void	set_texture(t_data *data, t_map *map, int type, char *line)
 {
 	char	*path;
 
 	if (map->elements[type].set)
-		exit_with_error(DUPLICATE_ELEMENT_ERROR);
-	// map->elements[type].path = parse_path(line);
+		exit_with_error(DUPLICATE_TEXTURE);
 	path = parse_path(line);
-	map->elements[type].texture = resize_texture();
-	// open image;
-	// resize image;
+	map->elements[type].texture = get_resized_texture(data->mlx, path);
+	if (!map->elements[type].texture)
+		exit_with_error(TEXTURE_INVALID_CONTENT);
 	map->elements[type].set = true;
 	fprintf(stderr, "%d %s\n", type, line);
 	free(path);
 }
-
-
 
 // void	*get_image(t_window *info, char *path)
 // {
@@ -126,10 +123,8 @@ void	set_texture(t_map *map, int type, char *line)
 // 	return (img); // done that
 // }
 
-
 // info->data->elements[k].img = get_image(info, info->data->elements[k].path);
 // work with tmp
-
 
 // put resize to render??
 

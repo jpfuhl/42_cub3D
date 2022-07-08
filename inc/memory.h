@@ -6,13 +6,14 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:56:49 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/06 19:28:06 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/08 16:13:15 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEMORY_H
 # define MEMORY_H
 
+# include "../libmlx/mlx.h"
 # include "structs.h"
 # include "error.h"
 
@@ -24,7 +25,7 @@ void		free_data(t_data *data);
 
 t_map		*create_map(void);
 void		default_initialize_map(t_map *map);
-void		free_map(t_map *map);
+void		free_map(void *mlx, t_map *map);
 
 t_window	*create_window(void);
 void		default_initialize_window(t_window *window);

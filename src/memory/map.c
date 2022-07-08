@@ -6,29 +6,29 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:22:56 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/07 14:54:06 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/08 18:10:12 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/memory.h"
 
-void	free_map(t_map *map)
+void	free_map(void *mlx, t_map *map)
 {
 	int	i;
 
 	i = 0;
-	while (i < 6)
+	while (i < 4)
 	{
-		free(map->elements[i].path);
+		mlx_destroy_image(mlx, map->elements[i].texture);
 		i++;
 	}
 	free(map->elements);
-	// i = 0;
-	// while (map->grid[i])
-	// {
-	// 	free(map->grid[i]);
-	// 	i++;
-	// }
+	i = 0;
+	while (map->grid[i])
+	{
+		free(map->grid[i]);
+		i++;
+	}
 	free(map->grid);
 	free(map);
 }
@@ -42,7 +42,6 @@ void	default_initialize_map(t_map *map)
 	while (i < 6)
 	{
 		map->elements[i].set = false;
-		map->elements[i].path = NULL;
 		map->elements[i].texture = NULL;
 		map->elements[i].r = 0;
 		map->elements[i].g = 0;

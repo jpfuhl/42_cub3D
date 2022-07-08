@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:22:56 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/06 19:50:23 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/08 16:13:24 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_data(t_data *data)
 {
-	free_map(data->map);
+	free_map(data->mlx, data->map);
 	free_window(data->window);
 	free_player(data->player);
 }
