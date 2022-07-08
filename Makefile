@@ -6,7 +6,7 @@
 #    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/08 17:23:00 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/08 19:06:38 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ O			=	obj/
 E			=	error/
 M			=	memory/
 P			=	parsing/
+R			=	rendering/
 
  #move get_next_line to libft ?
 OBJS		=	$(patsubst $S%.c, $O%.o, $(SRCS))
@@ -45,6 +46,8 @@ SRCS		=	$Smain.c \
 				$S$Pset_texture.c \
 				$S$Pset_tile_grid.c \
 				$S$Pset_tile_size.c \
+				$S$Rkey_handler.c \
+				$S$Rrender_frame.c \
 
 
 
@@ -69,6 +72,7 @@ $O%.o:		$S%.c
 			@[ -d $(O)$(E) ] || mkdir -p $(O)$(E)
 			@[ -d $(O)$(M) ] || mkdir -p $(O)$(M)
 			@[ -d $(O)$(P) ] || mkdir -p $(O)$(P)
+			@[ -d $(O)$(R) ] || mkdir -p $(O)$(R)
 			@echo "\033[1;32m$(NAME) ʕ·͡ᴥ·ʔ\033[1;0m\033[32m compiling...\033[0m"
 			@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 

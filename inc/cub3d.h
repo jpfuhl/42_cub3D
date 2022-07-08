@@ -8,6 +8,7 @@
 # include "error.h"
 # include "memory.h"
 # include "parser.h"
+# include "rendering.h"
 
 # include <stdbool.h>
 # include <stdio.h>
@@ -24,10 +25,6 @@
 // memory.h
 // parsing.h
 // rendering.h
-
-
-
-
 
 /*	MOVEMENT */
 
