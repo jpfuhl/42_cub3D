@@ -3,8 +3,8 @@
 
 # include <stdbool.h>
 
-# define WINDOW_WIDTH	1024
-# define WINDOW_HEIGHT	1024
+# define WINDOW_WIDTH	640 // 640 1024
+# define WINDOW_HEIGHT	640 // 640 1024
 # define PI				3.141592
 
 enum e_texture_type
@@ -108,6 +108,16 @@ typedef struct s_map
 	t_tile		**grid;
 }	t_map;
 
+typedef struct s_buttons
+{
+	bool	move_forward;
+	bool	move_backward;
+	bool	move_right;
+	bool	move_left;
+	bool	turn_right;
+	bool	turn_left;
+	bool	run;
+}	t_buttons;
 
 typedef struct s_data
 {
@@ -115,6 +125,7 @@ typedef struct s_data
 	t_map		*map;
 	t_window	*window;
 	t_player	*player;
+	t_buttons	*buttons;
 }	t_data;
 
 #endif

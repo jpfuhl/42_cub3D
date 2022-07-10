@@ -66,6 +66,7 @@ void	render_frame(t_data *data, void *mlx, t_image *screen)
 		mlx_destroy_image(mlx, screen->pointer);
 	screen->pointer = mlx_new_image(mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	screen->address = get_data_address(screen);
+	draw_minimap(data, screen);
 	draw_player(data, screen, data->player->x, data->player->y);
 	mlx_put_image_to_window(mlx, data->window->pointer, screen->pointer, 0, 0);
 }
