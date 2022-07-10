@@ -46,9 +46,13 @@ SRCS		=	$Smain.c \
 				$S$Pset_texture.c \
 				$S$Pset_tile_grid.c \
 				$S$Pset_tile_size.c \
+				$S$Rcreate_image.c \
 				$S$Rdraw_minimap.c \
-				$S$Rmovement.c \
+				$S$Rdraw_pixel.c \
+				$S$Rdraw_player.c \
 				$S$Rkeyhooks.c \
+				$S$Rmovement_collision.c \
+				$S$Rmovement.c \
 				$S$Rrender_frame.c \
 
 

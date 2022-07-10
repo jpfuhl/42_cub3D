@@ -54,5 +54,4 @@ void	keyhooks(t_data *data, t_window *window, void *mlx)
 	mlx_hook(window->pointer, 03, 0L, &release_buttons, data);
 	mlx_hook(window->pointer, 17, 0, &close_window, data);
 	mlx_loop_hook(mlx, &movement, data);
-	render_frame(data, mlx, window->screen);
 }
