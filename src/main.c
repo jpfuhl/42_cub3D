@@ -12,18 +12,9 @@
 
 #include "../inc/cub3d.h"
 
-static int	clean_destroy(t_data *data)
-{
-	free_data(data);
-	exit (0);
-	return (0);
-}
-
 static void	launch_cub3d(t_data *data, void *mlx, t_window *window)
 {
-	render_frame(data, mlx, window->screen);
-	mlx_key_hook(window->pointer, key_handler, data);
-	mlx_hook(window->pointer, 17, 0, clean_destroy, data);
+	keyhooks(data, window, mlx);
 	mlx_loop(mlx);
 }
 
