@@ -6,7 +6,7 @@
 /*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:03:22 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/11 19:58:07 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/11 21:49:22 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ int	raycasting(t_data *data, double factor)
 	//cameraX
 	//cameraX = 2 * factor / data->window->screen->width - 1; //if we want a minimap the 3d picture width should be smaller than the window
 	cameraX = factor / (double)(data->window->width / 2) - 1; // the /2 is bc i took the size of the map
-	//printf("Camera : %f\n", cameraX);
-	//printf("Factor : %f\n", factor);
-	//printf("vector dir >>> ray->vector.x : %f, ray->vector.y: %f \n", ray->vector.x, ray->vector.y);
-	//printf("vector plane >>> plane.x : %f, plane.y: %f \n", plane.x, plane.y);
 	non_vector.x = ray->vector.x + plane.x * cameraX;
 	non_vector.y = ray->vector.y + plane.y * cameraX;
 	//cambiar esto a rayDir 
@@ -69,7 +65,7 @@ int	raycasting(t_data *data, double factor)
 	inter = find_coalition(data, ray);
 	distance = sqrt(pow(inter.x - data->player->x, 2) + pow(inter.y - data->player->y, 2));
 	//printf("%f Find coalition point in x: %f, y: %f, distance: %f", factor, inter.x, inter.y, distance);
-	//dda_algorithm_punk(data, data->player, inter);
+	dda_algorithm_punk(data, data->player->x, data->player->y, inter);
 	return (0);
 }
 

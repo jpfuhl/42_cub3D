@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/11 20:52:15 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/11 21:37:03 by arendon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SRCS		=	$Smain.c \
 				$S$Rresize_image.c \
 				$S$Rray_casting.c \
 				$S$Rcheck_wall_coallision.c \
+				$S$Rdda_algorithm.c \
 
 
 

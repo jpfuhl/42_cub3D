@@ -31,6 +31,9 @@ void	keyhooks(t_data *data, t_window *window, void *mlx);
 int		movement(t_data *data);
 bool	movement_collision(t_data *data, double x, double y);
 
+/* DDA - ALGORITHM */
+int	dda_algorithm_punk(t_data *data, double player_x, double player_y, t_xy p2);
+void color_point(t_data *data, double x, double y, int i);
 
 /* RAYCASTING */
 void    my_mlx_pixel_put(t_image *img, int x, int y, int color);
