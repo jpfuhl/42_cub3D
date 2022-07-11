@@ -7,7 +7,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
-# include <raycasting.h>
 
 void	render_frame(t_data *data, t_window *window, void *mlx);
 
