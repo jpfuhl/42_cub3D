@@ -1,4 +1,14 @@
 /* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movement.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/11 19:19:29 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/11 19:21:37 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../inc/rendering.h"
 
@@ -57,7 +67,7 @@ static void	move_vertical(t_data *data, double x, double y)
 	}
 }
 
-int movement(t_data *data)
+int	movement(t_data *data)
 {
 	double	ang_rad;
 	double	velocity;
@@ -80,6 +90,6 @@ int movement(t_data *data)
 		turn(data, rotation_speed);
 	if (data->buttons->turn_left)
 		turn(data, -rotation_speed);
-	render_frame(data, data->mlx, data->window->screen);
+	render_frame(data, data->window, data->mlx);
 	return (0);
 }

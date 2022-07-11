@@ -1,5 +1,14 @@
 /* ************************************************************************** */
-
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_image.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/11 19:20:22 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/11 19:20:24 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../inc/rendering.h"
 
@@ -23,4 +32,6 @@ void	create_image(t_data *data, t_image **image, int width, int height)
 		mlx_destroy_image(data->mlx, (*image)->pointer);
 	(*image)->pointer = mlx_new_image(data->mlx, width, height);
 	(*image)->address = get_data_address(*image);
+	(*image)->width = width;
+	(*image)->height = height;
 }

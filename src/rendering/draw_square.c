@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_tile_size.c                                    :+:      :+:    :+:   */
+/*   draw_square.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:58:24 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/11 20:45:00 by jpfuhl           ###   ########.fr       */
+/*   Created: 2022/07/11 20:51:17 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/11 20:51:35 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/parser.h"
+#include "../../inc/rendering.h"
 
-void	set_tile_size(t_map *map)
+void	draw_square(t_image *image, int tile_size, int dx, int dy, int color)
 {
-	int	factor;
+	int	i;
+	int	j;
 
-	factor = 0;
-	if (map->width > map->height)
-		factor = map->height;
-	else if (map->width < map->height)
-		factor = map->width;
-	else if (map->width == map->height)
-		factor = map->width;
-	map->tile_size = WINDOW_WIDTH / factor;
-	fprintf(stderr, "TILE_SIZE: %d\n", map->tile_size);
+	j = 1 + dy * tile_size;
+	while (j < tile_size - 1 + dy * tile_size)
+	{
+		i = 1 + dx * tile_size;
+		while (i < tile_size - 1 + dx * tile_size)
+		{
+			draw_pixel(image, i, j, color);
+			i++;
+		}
+		j++;
+	}
 }

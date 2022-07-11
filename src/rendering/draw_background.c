@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_tile_size.c                                    :+:      :+:    :+:   */
+/*   draw_background.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:58:24 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/11 20:45:00 by jpfuhl           ###   ########.fr       */
+/*   Created: 2022/06/09 17:36:46 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/11 17:47:03 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/parser.h"
+#include "../inc/rendering.h"
 
-void	set_tile_size(t_map *map)
+void	draw_background(t_image *image, t_element *elements)
 {
-	int	factor;
-
-	factor = 0;
-	if (map->width > map->height)
-		factor = map->height;
-	else if (map->width < map->height)
-		factor = map->width;
-	else if (map->width == map->height)
-		factor = map->width;
-	map->tile_size = WINDOW_WIDTH / factor;
-	fprintf(stderr, "TILE_SIZE: %d\n", map->tile_size);
+	int	colour;
+	int	i;
+	int	j;
+	
+	j = 0;
+	colour = elements[CEILING].colour;
+	while (j < image->height)
+	{
+		i = 0;
+		if (j == image->height / 2)
+			colour = elements[FLOOR].colour;
+		while (i < image->width)
+		{
+			draw_pixel(image, i, j, colour);
+			i++;
+		}
+		j++;
+	}
 }

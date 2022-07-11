@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:22:56 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/06 19:44:51 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/11 19:38:37 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	free_window(t_window *window)
 	free(window->screen);
 	free(window->map);
 	free(window->minimap);
+	// mlx_destroy_image(data->mlx, tmp);
 	free(window);
 }
 

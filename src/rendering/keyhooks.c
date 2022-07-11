@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyhooks.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/11 19:19:42 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/11 19:22:07 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/rendering.h"
 #include "../../inc/memory.h"
 
@@ -27,7 +39,7 @@ static int	release_buttons(int key, t_data *data)
 	return (0);
 }
 
-static int press_buttons(int key, t_data *data)
+static int	press_buttons(int key, t_data *data)
 {
 	if (key == 53)
 		close_window(data);
@@ -50,7 +62,7 @@ static int press_buttons(int key, t_data *data)
 
 void	keyhooks(t_data *data, t_window *window, void *mlx)
 {
-	mlx_hook(window->pointer, 02, 0L, &press_buttons ,data);
+	mlx_hook(window->pointer, 02, 0L, &press_buttons, data);
 	mlx_hook(window->pointer, 03, 0L, &release_buttons, data);
 	mlx_hook(window->pointer, 17, 0, &close_window, data);
 	mlx_loop_hook(mlx, &movement, data);

@@ -6,7 +6,7 @@
 #    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/08 19:06:38 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/11 20:52:15 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ O			=	obj/
 E			=	error/
 M			=	memory/
 P			=	parsing/
+X			=	raycasting/
 R			=	rendering/
 
  #move get_next_line to libft ?
@@ -35,7 +36,7 @@ SRCS		=	$Smain.c \
 				$S$Pconvert_rgb_to_hex.c \
 				$S$Pcreate_cub_array.c \
 				$S$Pcreate_tile_grid.c \
-				$S$Pget_resized_texture.c \
+				$S$Pget_texture.c \
 				$S$Plaunch_parser.c \
 				$S$Pparse_elements.c \
 				$S$Pparse_map.c \
@@ -47,13 +48,18 @@ SRCS		=	$Smain.c \
 				$S$Pset_tile_grid.c \
 				$S$Pset_tile_size.c \
 				$S$Rcreate_image.c \
-				$S$Rdraw_minimap.c \
+				$S$Rdraw_background.c \
+				$S$Rdraw_map.c \
 				$S$Rdraw_pixel.c \
 				$S$Rdraw_player.c \
+				$S$Rdraw_square.c \
 				$S$Rkeyhooks.c \
 				$S$Rmovement_collision.c \
 				$S$Rmovement.c \
 				$S$Rrender_frame.c \
+				$S$Rresize_image.c \
+				$S$Rray_casting.c \
+				$S$Rcheck_wall_coallision.c \
 
 
 
@@ -78,6 +84,7 @@ $O%.o:		$S%.c
 			@[ -d $(O)$(E) ] || mkdir -p $(O)$(E)
 			@[ -d $(O)$(M) ] || mkdir -p $(O)$(M)
 			@[ -d $(O)$(P) ] || mkdir -p $(O)$(P)
+			@[ -d $(O)$(X) ] || mkdir -p $(O)$(X)
 			@[ -d $(O)$(R) ] || mkdir -p $(O)$(R)
 			@echo "\033[1;32m$(NAME) ʕ·͡ᴥ·ʔ\033[1;0m\033[32m compiling...\033[0m"
 			@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@

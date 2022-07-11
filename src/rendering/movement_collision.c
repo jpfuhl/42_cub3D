@@ -1,4 +1,13 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movement_collision.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/11 19:19:23 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/11 19:21:02 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/rendering.h"
@@ -16,7 +25,7 @@ static bool	going_across(t_data *data, double new_x, double new_y)
 	int		old_y;
 	int		old_x_copy;
 	double	tile;
-	
+
 	old_x = (int)data->player->x;
 	old_y = (int)data->player->y;
 	old_x_copy = old_x;
@@ -74,8 +83,8 @@ bool	movement_collision(t_data *data, double x, double y)
 {
 	double	new_x;
 	double	new_y;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	new_x = data->player->x + x;
 	new_y = data->player->y + y;
@@ -83,7 +92,7 @@ bool	movement_collision(t_data *data, double x, double y)
 	j = new_y / data->map->tile_size;
 	if (check_if_is_wall(data->map->grid, i, j))
 		return (true);
-	else if (less_than_x_pixels(data, new_x, new_y, 1))
+	else if (less_than_x_pixels(data, new_x, new_y, 2))
 		return (true);
 	else if (going_across(data, new_x, new_y))
 		return (true);
