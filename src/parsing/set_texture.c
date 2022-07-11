@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:36:04 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 18:18:04 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/11 19:48:10 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,7 @@ void	set_texture(t_data *data, t_map *map, int type, char *line)
 	if (map->elements[type].set)
 		exit_with_error(DUPLICATE_TEXTURE);
 	path = parse_path(line);
-	map->elements[type].texture = get_resized_texture(data->mlx, path);
-	if (!map->elements[type].texture)
-		exit_with_error(TEXTURE_INVALID_CONTENT);
+	map->elements[type].texture = get_texture(data, path);
 	map->elements[type].set = true;
 	fprintf(stderr, "%d %s\n", type, line);
 	free(path);

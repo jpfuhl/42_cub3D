@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:35:29 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 16:03:11 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/11 20:05:14 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	parse_elements(t_data *data, t_map *map, char **cub)
 	i = 0;
 	while (cub[i] && !all_set)
 	{
-		if (cub[i][0] != '\0')
+		if (cub[i][0] != ' ')
 			set_element(data, map, cub[i]);
 		i++;
 		check_if_all_set(map->elements, &all_set);
