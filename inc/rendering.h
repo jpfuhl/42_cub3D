@@ -7,6 +7,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
+# include "raycasting.h"
 
 void	render_frame(t_data *data, t_window *window, void *mlx);
 
@@ -16,6 +17,12 @@ void	draw_background(t_image *image, t_element *elements);
 void	draw_player(t_data *data, t_image *image, double x, double y);
 void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
 void	draw_map(t_data *data, t_image *image);
+
+
+void	draw_wall_line(t_data *data, t_element *elements, t_ray *ray, double i);
+// void	draw_wall(t_data *data, double factor, t_ray *ray);
+
+
 void	draw_minimap();
 // void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
+#    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/11 21:37:03 by arendon-         ###   ########.fr        #
+#    Updated: 2022/07/12 11:37:37 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,10 @@ SRCS		=	$Smain.c \
 				$S$Rray_casting.c \
 				$S$Rcheck_wall_coallision.c \
 				$S$Rdda_algorithm.c \
+				$S$Rcalculate_line_height.c \
+				$S$Rcalculate_line_position.c \
+				$S$Rcalculate_perp_wall_distance.c \
+				$S$Rdraw_wall_line.c \
 
 
 

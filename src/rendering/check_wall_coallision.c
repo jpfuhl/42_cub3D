@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:13:03 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/11 21:09:18 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/11 21:21:42 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ static void	disco_wall(t_data *data, int dx, int dy)
 	int		colour;
 
 	colour = -1;
-	if (i % 500 == 0 && i % 300 == 0)
-		colour = 0x00babc;
-	else if (i % 500 == 0)
-		colour = 0xd101c0;
-	else if (i % 300 == 0)
+	// if (i % 500 == 0 && i % 300 == 0)
+	// 	colour = 0x00babc;
+	// else if (i % 500 == 0)
+	// 	colour = 0xd101c0;
+	if (i % 300 == 0 && i % 500 == 0)
 		colour = 0xf1c937;
 	else
 		colour = -1;

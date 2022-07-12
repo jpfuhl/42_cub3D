@@ -5,6 +5,7 @@
 
 # define WINDOW_WIDTH	1024 // 640 1024
 # define WINDOW_HEIGHT	1024 // 640 1024
+# define TEXTURE_SIZE	128
 # define PI				3.141592
 
 enum e_texture_type
@@ -39,6 +40,15 @@ typedef struct s_ray
 	int			stepY;
 	int			axis;
 	int			colour;
+	int			wall;
+	double		perp_wall_distance;
+	double		line_position;
+	int			line_height;
+	double		line_height_start;
+	double		line_step;
+	int			draw_start;
+	int			draw_end;
+	t_xy		intersection;
 }	t_ray;
 
 // CAMERA ?

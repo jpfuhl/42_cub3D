@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:03:22 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/11 21:49:22 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/12 13:53:06 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	raycasting(t_data *data, double factor)
 	t_xy	non_vector;
 	ray = (t_ray *)malloc(sizeof(t_ray));
 	if (ray == NULL)
-		return (EXIT_FAILURE);
+		return (MALLOC_ERROR);
 		
 	ray->vector.x = cos((data->player->rotation) * PI / 180);
 	ray->vector.y = -sin((data->player->rotation) * PI / 180);
@@ -66,6 +66,15 @@ int	raycasting(t_data *data, double factor)
 	distance = sqrt(pow(inter.x - data->player->x, 2) + pow(inter.y - data->player->y, 2));
 	//printf("%f Find coalition point in x: %f, y: %f, distance: %f", factor, inter.x, inter.y, distance);
 	dda_algorithm_punk(data, data->player->x, data->player->y, inter);
+
+	/* NEW */
+	ray->intersection = inter;
+	calculate_perp_wall_distance(data->player, ray);
+	calculate_line_position(ray, inter, data->map->tile_size); // x
+	calculate_line_height(data, data->window, ray); // y
+	
+	draw_wall_line(data, data->map->elements, ray, factor);
+	// draw_wall(data, factor, ray);
 	return (0);
 }
 
