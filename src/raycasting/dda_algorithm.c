@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 21:23:48 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/12 19:53:40 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 20:00:54 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 static void color_point(t_data *data, double x, double y, int i)
 {
 	if (i % 12 == 0)
-		my_mlx_pixel_put(data->window->map, x, y, 0xf1c937);
+		draw_pixel(data->window->map, x, y, 0xf1c937);
 	else if (i % 18 == 0)
-		my_mlx_pixel_put(data->window->map, x, y, 0xd101c0);
+		draw_pixel(data->window->map, x, y, 0xd101c0);
 	else
-		my_mlx_pixel_put(data->window->map, x, y, 0x00babc);
+		draw_pixel(data->window->map, x, y, 0x00babc);
 }
 
 int	dda_algorithm_punk(t_data *data, double player_x, double player_y, t_xy p2)
