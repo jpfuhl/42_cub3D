@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/12 19:40:53 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/12 19:45:09 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ERROR_H
 # define ERROR_H
 
@@ -31,6 +43,6 @@ enum e_error_type
 	MALLOC_ERROR
 };
 
-void	exit_with_error(int	type);
+void	exit_with_error(int type);
 
 #endif

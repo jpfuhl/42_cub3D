@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/12 19:41:06 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/12 19:42:13 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PARSER_H
 # define PARSER_H
 
@@ -10,7 +22,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
-
 
 void	launch_parser(t_data *data, t_map *map, char *file_name);
 

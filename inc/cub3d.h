@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/12 19:40:07 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/12 19:40:22 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
-
 
 # include "../libft/includes/libft.h"
 # include "../libmlx/mlx.h"
@@ -19,14 +30,11 @@
 # include <math.h>
 # include <limits.h>
 
-
-
 // error.h
 // memory.h
 // parsing.h
 // rendering.h
 
 /*	MOVEMENT */
-
 
 #endif

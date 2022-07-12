@@ -6,7 +6,7 @@
 #    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/12 11:37:37 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/12 19:57:26 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ R			=	rendering/
 OBJS		=	$(patsubst $S%.c, $O%.o, $(SRCS))
 SRCS		=	$Smain.c \
 				$S$Eexit_with_error.c \
+				$S$Mbuttons.c \
 				$S$Mdata.c \
 				$S$Mmap.c \
 				$S$Mplayer.c \
@@ -47,24 +48,25 @@ SRCS		=	$Smain.c \
 				$S$Pset_texture.c \
 				$S$Pset_tile_grid.c \
 				$S$Pset_tile_size.c \
+				$S$Xcalculate_line_height.c \
+				$S$Xcalculate_line_position.c \
+				$S$Xcalculate_perp_wall_distance.c \
+				$S$Xcheck_wall_collision.c \
+				$S$Xdda_algorithm.c \
+				$S$Xraycasting.c \
 				$S$Rcreate_image.c \
 				$S$Rdraw_background.c \
 				$S$Rdraw_map.c \
 				$S$Rdraw_pixel.c \
 				$S$Rdraw_player.c \
 				$S$Rdraw_square.c \
+				$S$Rdraw_wall.c \
 				$S$Rkeyhooks.c \
 				$S$Rmovement_collision.c \
 				$S$Rmovement.c \
 				$S$Rrender_frame.c \
 				$S$Rresize_image.c \
-				$S$Rray_casting.c \
-				$S$Rcheck_wall_coallision.c \
-				$S$Rdda_algorithm.c \
-				$S$Rcalculate_line_height.c \
-				$S$Rcalculate_line_position.c \
-				$S$Rcalculate_perp_wall_distance.c \
-				$S$Rdraw_wall_line.c \
+
 
 
 

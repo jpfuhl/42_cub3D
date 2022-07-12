@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structs.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/12 19:42:39 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/12 19:47:34 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
@@ -29,26 +41,26 @@ typedef struct s_xy
 // change this
 typedef struct s_ray
 {
-	t_xy		vector;
-	int			c_mapx;
-	int			c_mapy;
-	double		sideDistX;
-	double		sideDistY;
-	double		deltaDistX;
-	double		deltaDistY;
-	int			stepX;
-	int			stepY;
-	int			axis;
-	int			colour;
-	int			wall;
-	double		perp_wall_distance;
-	double		line_position;
-	int			line_height;
-	double		line_height_start;
-	double		line_step;
-	int			draw_start;
-	int			draw_end;
-	t_xy		intersection;
+	t_xy	vector;
+	int		c_mapx;
+	int		c_mapy;
+	double	sideDistX;
+	double	sideDistY;
+	double	deltaDistX;
+	double	deltaDistY;
+	int		stepX;
+	int		stepY;
+	int		axis;
+	int		colour;
+	int		wall;
+	double	perp_wall_distance;
+	double	line_position;
+	int		line_height;
+	double	line_height_start;
+	double	line_step;
+	int		draw_start;
+	int		draw_end;
+	t_xy	intersection;
 }	t_ray;
 
 // CAMERA ?
@@ -127,6 +139,7 @@ typedef struct s_buttons
 	bool	turn_right;
 	bool	turn_left;
 	bool	run;
+	bool	minimap;
 }	t_buttons;
 
 typedef struct s_data

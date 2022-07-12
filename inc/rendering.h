@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   rendering.h										:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>	 +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2022/07/12 19:42:33 by jpfuhl			#+#	#+#			 */
+/*   Updated: 2022/07/12 19:45:42 by jpfuhl		   ###   ########.fr	   */
+/*																			*/
+/* ************************************************************************** */
+
 #ifndef RENDERING_H
 # define RENDERING_H
 
@@ -17,15 +29,10 @@ void	draw_background(t_image *image, t_element *elements);
 void	draw_player(t_data *data, t_image *image, double x, double y);
 void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
 void	draw_map(t_data *data, t_image *image);
+void	draw_wall(t_data *data, t_element *elements, t_ray *ray, double i);
 
-
-void	draw_wall_line(t_data *data, t_element *elements, t_ray *ray, double i);
-// void	draw_wall(t_data *data, double factor, t_ray *ray);
-
-
-void	draw_minimap();
+void	draw_minimap(void);
 // void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
-
 
 void	create_image(t_data *data, t_image **image, int width, int height);
 char	*get_data_address(t_image *image);
@@ -37,24 +44,5 @@ int		get_pixel_colour(t_image *image, int x, int y);
 void	keyhooks(t_data *data, t_window *window, void *mlx);
 int		movement(t_data *data);
 bool	movement_collision(t_data *data, double x, double y);
-
-/* DDA - ALGORITHM */
-int	dda_algorithm_punk(t_data *data, double player_x, double player_y, t_xy p2);
-void color_point(t_data *data, double x, double y, int i);
-
-/* RAYCASTING */
-void    my_mlx_pixel_put(t_image *img, int x, int y, int color);
-int raycasting(t_data *data, double factor);
-t_xy    find_coalition(t_data *data, t_ray *ray);
-void    deltaDist(t_ray *ray);
-void    sideDist(t_data *data, t_ray *ray);
-t_xy    first_int_X(t_data *data, t_ray *ray);
-t_xy    first_int_Y(t_data *data, t_ray *ray);
-t_xy    intersection_X(t_data *data, t_ray *ray);
-t_xy    intersection_Y(t_data *data, t_ray *ray);
-
-/* check_wall_coallision.c */
-bool    check_wall_collision(t_data *data, t_ray *ray, t_xy vector, int x, int y);
-
 
 #endif
