@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:51 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 13:58:22 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 16:07:10 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,20 @@ void	draw_wall_line(t_data *data, t_element *elements, t_ray *ray, double i)
 	int		pixel = 0;
 
 	j = ray->draw_start;
-	x = (int)ray->line_position;
+	x = ray->line_position;
 	y = ray->line_height_start;
-	int colour = 1;
-	fprintf(stderr, "%d %d %d\n", ray->line_height, ray->draw_start, ray->draw_end);
 	while (j < ray->draw_end)
 	{
-		if (colour == 1)
-			pixel = get_texture_pixel(elements[NORTH].texture->pointer, x, (int)y);
-		// else if (ray->wall == SOUTH)
-		// 	pixel = get_texture_pixel(elements[SOUTH].texture, (int)x, (int)y);
-		// else if (ray->wall == WEST)
-		// 	pixel = get_texture_pixel(elements[WEST].texture, (int)x, (int)y);
-		// else if (ray->wall == EAST)
-		// 	pixel = get_texture_pixel(elements[EAST].texture, (int)x, (int)y);
+		if (ray->colour == NORTH)
+			pixel = get_texture_pixel(elements[NORTH].texture->pointer, (int)x, (int)y);
+		else if (ray->colour == SOUTH)
+			pixel = get_texture_pixel(elements[SOUTH].texture->pointer, (int)x, (int)y);
+		else if (ray->colour == WEST)
+			pixel = get_texture_pixel(elements[WEST].texture->pointer, (int)x, (int)y);
+		else if (ray->colour == EAST)
+			pixel = get_texture_pixel(elements[EAST].texture->pointer, (int)x, (int)y);
 		if (pixel)
-			draw_pixel(data->window->screen, (int)i, j, pixel);
+			draw_pixel(data->window->screen, i, j, pixel);
 		y += ray->line_step;
 		j++;
 	}

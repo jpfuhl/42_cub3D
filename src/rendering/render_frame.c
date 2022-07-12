@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:43:33 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 11:27:04 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 16:16:16 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	render_frame(t_data *data, t_window *window, void *mlx)
 	map_width = data->map->width * data->map->tile_size;
 	map_height = data->map->height * data->map->tile_size;
 	// create_image(data, &window->screen, WINDOW_WIDTH, WINDOW_HEIGHT);
-	create_image(data, &window->screen, map_width, map_height);
+	// create_image(data, &window->screen, map_width, map_height);
+	create_image(data, &window->screen, data->window->width, data->window->height);
 	// create_image(data, &window->minimap, map_width / 6, map_height / 6);
 	// draw_map(data, window->screen);
 	draw_player(data, window->screen, data->player->x, data->player->y);
-	// draw_background(window->screen, data->map->elements);
+	draw_background(window->screen, data->map->elements);
 	int	factor;
 
 	factor = 0;
