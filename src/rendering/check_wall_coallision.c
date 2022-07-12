@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:13:03 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/11 21:21:42 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 17:50:59 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	disco_wall(t_data *data, int dx, int dy)
 	if (i == 300000)
 		i = 0;
 	if (colour != -1)
-		draw_square(data->window->screen, data->map->tile_size, dx, dy, colour);
+		draw_square(data->window->map, data->map->tile_size, dx, dy, colour);
 }
 
 static bool	check_west_wall(t_data *data, t_tile **grid, t_ray *ray, int i, int j)

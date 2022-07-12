@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:21:17 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 19:06:19 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 17:45:12 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	initialize_cub3d(void *mlx, t_window *window)
 
 	window->width = WINDOW_WIDTH;
 	window->height = WINDOW_HEIGHT;
-	name = "cub3D ʕ·͡ᴥ·ʔ";
+	name = "D1sco cub3D";
 	window->pointer = mlx_new_window(mlx, WINDOW_WIDTH, WINDOW_HEIGHT, name);
 }
 

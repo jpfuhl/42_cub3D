@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:03:22 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/12 13:53:06 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 18:18:09 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int	raycasting(t_data *data, double factor)
 	inter = find_coalition(data, ray);
 	distance = sqrt(pow(inter.x - data->player->x, 2) + pow(inter.y - data->player->y, 2));
 	//printf("%f Find coalition point in x: %f, y: %f, distance: %f", factor, inter.x, inter.y, distance);
-	dda_algorithm_punk(data, data->player->x, data->player->y, inter);
+	// if (data->map->tile_size > 4)
+	// 	dda_algorithm_punk(data, data->player->x, data->player->y, inter);
 
 	/* NEW */
 	ray->intersection = inter;
@@ -142,13 +143,13 @@ t_xy	find_coalition(t_data *data, t_ray *ray)
 		if (ray->vector.x != 0)
 		{
 			inter = first_int_X(data, ray);
-			my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
+			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
 			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 				return (inter);
 			while (fabs(ray->sideDistX + (ray->deltaDistX * (int)data->map->tile_size)) < fabs(ray->sideDistY))
 			{
 				inter = intersection_X(data, ray);
-				my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
+				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
 				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 					return (inter);
 			}
@@ -156,7 +157,7 @@ t_xy	find_coalition(t_data *data, t_ray *ray)
 		if (ray->vector.y != 0)
 		{
 			inter = first_int_Y(data, ray);
-			my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
+			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
 			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 				return (inter);
 		}
@@ -167,13 +168,13 @@ t_xy	find_coalition(t_data *data, t_ray *ray)
 		if (ray->vector.y != 0)
 		{
 			inter = first_int_Y(data, ray);
-			my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
+			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
 			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 				return (inter);
 			while (fabs(ray->sideDistY + (ray->deltaDistY * (int)data->map->tile_size)) < fabs(ray->sideDistX))
 			{
 				inter = intersection_Y(data, ray);
-				my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
+				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
 				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 					return (inter);
 			}
@@ -181,7 +182,7 @@ t_xy	find_coalition(t_data *data, t_ray *ray)
 		if (ray->vector.x != 0)
 		{
 			inter = first_int_X(data, ray);
-			my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
+			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
 			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 				return (inter);
 		}
@@ -196,7 +197,7 @@ t_xy	find_coalition(t_data *data, t_ray *ray)
 			if (ray->vector.x != 0)
 			{
 				inter = intersection_X(data, ray);
-				my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
+				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
 				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 					break;
 			}
@@ -206,7 +207,7 @@ t_xy	find_coalition(t_data *data, t_ray *ray)
 			if (ray->vector.y != 0)
 			{
 				inter = intersection_Y(data, ray);
-				my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
+				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
 				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
 					break;
 			}

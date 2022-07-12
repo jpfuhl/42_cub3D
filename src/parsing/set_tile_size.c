@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:58:24 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/11 20:45:00 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 17:36:32 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ void	set_tile_size(t_map *map)
 	else if (map->width == map->height)
 		factor = map->width;
 	map->tile_size = WINDOW_WIDTH / factor;
+	if (map->tile_size < 2)
+		map->tile_size = 2;
 	fprintf(stderr, "TILE_SIZE: %d\n", map->tile_size);
 }

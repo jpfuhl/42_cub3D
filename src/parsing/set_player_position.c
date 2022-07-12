@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:02:02 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 17:07:40 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/12 17:17:03 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	set_parameters(t_data *data, int i, int j, int rotation)
 {
-	double	tile_size;
+	int	tile_size;
 
 	tile_size = data->map->tile_size;
 	data->player->i = i;

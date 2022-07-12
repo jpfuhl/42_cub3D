@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 21:23:48 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/11 21:51:13 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/12 18:12:46 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int	dda_algorithm_punk(t_data *data, double player_x, double player_y, t_xy p2)
 void color_point(t_data *data, double x, double y, int i)
 {
 	if (i % 12 == 0)
-		my_mlx_pixel_put(data->window->screen, x, y, 0xf1c937);
+		my_mlx_pixel_put(data->window->map, x, y, 0xf1c937);
 	else if (i % 18 == 0)
-		my_mlx_pixel_put(data->window->screen, x, y, 0xd101c0);
+		my_mlx_pixel_put(data->window->map, x, y, 0xd101c0);
 	else
-		my_mlx_pixel_put(data->window->screen, x, y, 0x00babc);
+		my_mlx_pixel_put(data->window->map, x, y, 0x00babc);
 }
