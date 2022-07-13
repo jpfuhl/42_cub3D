@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:43:33 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 17:33:03 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 18:18:17 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	render_frame(t_data *data, t_window *window, void *mlx)
 	create_image(data, &window->screen, data->window->width, data->window->height);
 	create_image(data, &window->map, 225, 225);
 	draw_minimap_new(data, window->map);
+	// draw_player(data, window->map, data->player->x / 128, data->player->y / 128);
 	if (data->buttons->minimap)
 	{
-		draw_player(data, window->map, data->player->x, data->player->y);
 		create_image(data, &window->minimap, map_width / 6, map_height / 6);
 	}
 	draw_background(window->screen, data->map->elements);

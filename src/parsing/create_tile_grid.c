@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 19:42:01 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 18:11:26 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 18:37:44 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	default_initialize_tile(t_tile *tile)
 	tile->y_o = 0.0;
 	tile->y = 0.0;
 	tile->wall = false;
+	tile->vision = false;
 }
 
 t_tile	**create_tile_grid(t_map *map)

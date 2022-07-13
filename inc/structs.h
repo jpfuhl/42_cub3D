@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:39 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 13:05:55 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:37:12 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ typedef struct s_tile
 	double	y_o;
 	double	y;
 	bool	wall;
+	bool	vision;
 }	t_tile;
 
 typedef struct s_map
