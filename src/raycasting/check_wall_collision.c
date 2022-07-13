@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_wall_coallision.c                            :+:      :+:    :+:   */
+/*   wall_collision.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:13:03 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/12 17:50:59 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 11:25:35 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ WEST - GREEN -------
 NORTh-BLUE
 */
 
-static void	disco_wall(t_data *data, int dx, int dy)
+void	disco_wall(t_data *data, int dx, int dy)
 {
-	static	int	i = 0;
-	int		colour;
+	static int	i;// = 0;
+	int			colour;
 
+	i = 0;
 	colour = -1;
 	// if (i % 500 == 0 && i % 300 == 0)
 	// 	colour = 0x00babc;
@@ -39,110 +40,89 @@ static void	disco_wall(t_data *data, int dx, int dy)
 		draw_square(data->window->map, data->map->tile_size, dx, dy, colour);
 }
 
-static bool	check_west_wall(t_data *data, t_tile **grid, t_ray *ray, int i, int j)
+bool	check_wall_collision(t_data *data, t_ray *ray, t_xy vector, t_xy inter)
 {
-	if (grid[i - 1][j].wall)
-	{
-		ray->colour = WEST;
-		disco_wall(data, i - 1, j);
-		return (true);
-	}
-	return (false);
+	bool	collision;
+	int		fac;
+
+	collision = false;
+	fac = (int)data->map->tile_size;
+	if ((int)inter.x < 0)
+		inter.x *= -1;
+	if ((int)inter.y < 0)
+		inter.y *= -1;
+	if (ray->axis == 1 && ray->vector.y > 0 && (int)inter.x % fac != 0)
+		collision = south_wall(data, ray, inter.x / fac, inter.y / fac);
+	else if (ray->axis == 1 && ray->vector.y <= 0 && (int)inter.x % fac != 0)
+		collision = north_wall(data, ray, inter.x / fac, inter.y / fac);
+	else if (ray->axis == 0 && ray->vector.x > 0 && (int)inter.y % fac != 0)
+		collision = east_wall(data, ray, inter.x / fac, inter.y / fac);
+	else if (ray->axis == 0 && ray->vector.x <= 0 && (int)inter.y % fac != 0)
+		collision = west_wall(data, ray, inter.x / fac, inter.y / fac);
+	else
+		collision = check_borders(data, ray, vector, inter);
+	return (collision);
 }
 
-static bool	check_east_wall(t_data *data, t_tile **grid, t_ray *ray, int i, int j)
+bool	check_borders(t_data *data, t_ray *ray, t_xy vector, t_xy inter)
 {
-	if (grid[i][j].wall)
-	{
-		ray->colour = EAST;
-		disco_wall(data, i, j);
-		return (true);
-	}
-	return (false);
-}
+	bool	collision;
 
-static bool	check_south_wall(t_data *data, t_tile **grid, t_ray *ray, int i, int j)
+	if (ray->vector.x <= 0)
+		collision = left_border(data, ray, vector, inter);
+	else
+		collision = right_border(data, ray, vector, inter);
+	return (collision);
+}	
+
+bool	left_border(t_data *data, t_ray *ray, t_xy vector, t_xy inter)
 {
-	if (grid[i][j].wall)
-	{
-		ray->colour = SOUTH;
-		disco_wall(data, i, j);
-		return (true);
-	}
-	return (false);
-}
+	bool	collision;
+	int		fac;
 
-static bool	check_north_wall(t_data *data, t_tile **grid, t_ray *ray, int i, int j)
-{
-	if (grid[i][j - 1].wall)
+	collision = false;
+	fac = (int)data->map->tile_size;
+	if (ray->vector.y > 0 && (int)inter.x % fac == 0 && (int)inter.y % fac == 0)
 	{
-		ray->colour = NORTH;
-		disco_wall(data, i, j - 1);
-		return (true);
-	}
-	return (false);
-}
-
-static bool	check_northwest(t_data *data, t_tile **grid, t_ray *ray, int i, int j)
-{
-	if (grid[i - 1][j - 1].wall)
-	{
-		ray->colour = NORTH;
-		disco_wall(data, i - 1, j - 1);
-		return (true);
-	}
-	return (false);
-}
-
-bool	check_wall_collision(t_data *data, t_ray *ray, t_xy vector, int x, int y)
-{
-	bool	wall_collision;
-	int		factor;
-
-	wall_collision = false;
-	factor = (int)data->map->tile_size;
-	//printf("factor %d\n", factor);
-	if (x < 0)
-		x *= -1;
-	if (y < 0)
-		y *= -1;
-	if (ray->axis == 1 && ray->vector.y > 0 && x % factor != 0)
-		wall_collision = check_south_wall(data, data->map->grid, ray, x / factor, y / factor);
-	else if (ray->axis == 1 && ray->vector.y <= 0 && x % factor != 0)
-		wall_collision = check_north_wall(data, data->map->grid, ray, x / factor, y / factor);
-	else if (ray->axis == 0 && ray->vector.x > 0 && y % factor != 0)
-		wall_collision = check_east_wall(data, data->map->grid, ray, x / factor, y / factor);
-	else if (ray->axis == 0 && ray->vector.x <= 0 && y % factor != 0)
-		wall_collision = check_west_wall(data, data->map->grid, ray, x / factor, y / factor);
-	else if (ray->vector.x <= 0 && ray->vector.y > 0 && x % factor == 0 && y % factor == 0)
-	{
-		wall_collision = check_south_wall(data, data->map->grid, ray, x / factor, y / factor);
-		if (wall_collision == false)
-			wall_collision = check_west_wall(data, data->map->grid, ray, x / factor, y / factor);
+		collision = south_wall(data, ray, inter.x / fac, inter.y / fac);
+		if (collision == false)
+			collision = west_wall(data, ray, inter.x / fac, inter.y / fac);
 		if (ray->axis == 1)
 			ray->colour = SOUTH;
 	}
-	else if (ray->vector.x <= 0 && ray->vector.y <= 0 && x % factor == 0 && y % factor == 0)
+	else if (ray->vector.y <= 0 && (int)inter.x % fac == 0
+		&& (int)inter.y % fac == 0)
 	{
-		wall_collision = check_northwest(data, data->map->grid, ray, x / factor, y / factor);
+		collision = northwest(data, ray, inter.x / fac, inter.y / fac);
 		if (ray->axis == 0)
 			ray->colour = WEST;
 	}
-	else if (ray->vector.x > 0 && ray->vector.y > 0 && x % factor == 0 && y % factor == 0)
+	return (collision);
+}
+
+bool	right_border(t_data *data, t_ray *ray, t_xy vector, t_xy inter)
+{
+	bool	collision;
+	int		fac;
+
+	collision = false;
+	fac = (int)data->map->tile_size;
+	if (ray->vector.y > 0 && (int)inter.x % fac == 0 && (int)inter.y % fac == 0)
 	{
-		wall_collision = check_south_wall(data, data->map->grid, ray, x / factor, y / factor);
-		if (wall_collision == false)
-			wall_collision = check_east_wall(data, data->map->grid, ray, x / factor, y / factor);
+		collision = south_wall(data, ray, inter.x / fac, inter.y / fac);
+		if (collision == false)
+			collision = east_wall(data, ray, inter.x / fac, inter.y / fac);
 		if (ray->axis == 0)
 			ray->colour = EAST;
 	}
-	else if (ray->vector.x > 0 && ray->vector.y <= 0 && x % (int)factor == 0 && y % (int)factor == 0)
+	else if (ray->vector.y <= 0 && (int)inter.x % (int)fac == 0
+		&& (int)inter.y % (int)fac == 0)
 	{
-		wall_collision = check_north_wall(data, data->map->grid, ray, x / factor, y / factor);
-		if (wall_collision == false)
-			wall_collision = check_east_wall(data, data->map->grid, ray, x / factor, y / factor);;
+		collision = north_wall(data, ray, inter.x / fac, inter.y / fac);
+		if (collision == false)
+			collision = east_wall(data, ray, inter.x / fac, inter.y / fac);
 		if (ray->axis == 0)
 			ray->colour = EAST;
 	}
-	return (wall_collision);
+	return (collision);
 }

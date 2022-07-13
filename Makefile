@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/12 19:57:26 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/13 10:59:12 by arendon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS		=	$Smain.c \
 				$S$Xcalculate_line_position.c \
 				$S$Xcalculate_perp_wall_distance.c \
 				$S$Xcheck_wall_collision.c \
+				$S$Xcheck_walls.c \
 				$S$Xdda_algorithm.c \
 				$S$Xraycasting.c \
 				$S$Rcreate_image.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:03:22 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/12 19:58:28 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 11:22:29 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,27 @@ void	raycasting(t_data *data, double factor)
 {
 	t_ray	*ray;
 	t_xy	plane;
-	double	cameraX;
+	double	camerax;
 	t_xy	non_vector;
+
 	ray = (t_ray *)malloc(sizeof(t_ray));
 	if (ray == NULL)
 		exit_with_error(MALLOC_ERROR);
-		
 	ray->vector.x = cos((data->player->rotation) * PI / 180);
 	ray->vector.y = -sin((data->player->rotation) * PI / 180);
 	plane.x = (.66) * (-1) * ray->vector.y;
 	plane.y = (.66) * ray->vector.x;
-	//cameraX
-	//cameraX = 2 * factor / data->window->screen->width - 1; //if we want a minimap the 3d picture width should be smaller than the window
-	cameraX = factor / (double)(data->window->width / 2) - 1; // the /2 is bc i took the size of the map
-	non_vector.x = ray->vector.x + plane.x * cameraX;
-	non_vector.y = ray->vector.y + plane.y * cameraX;
+	camerax = factor / (double)(data->window->width / 2) - 1; // the /2 is bc i took the size of the map
+	non_vector.x = ray->vector.x + plane.x * camerax;
+	non_vector.y = ray->vector.y + plane.y * camerax;
 	//cambiar esto a rayDir 
 	ray->vector.x = (non_vector.x) / (sqrtf(powf(non_vector.x, 2) + powf(non_vector.y, 2)));
 	ray->vector.y = (non_vector.y) / (sqrtf(powf(non_vector.x, 2) + powf(non_vector.y, 2)));
 	ray->c_mapx = (int)data->player->x / (int)data->map->tile_size;
 	ray->c_mapy = (int)data->player->y / (int)data->map->tile_size;
-
-	/*printf("\n***********************SOME DATA*************************\n");
-	printf("tile_size: %d\n", (int)data->map->tile_size);
-	printf("(int)data->player->x: %d, (int)data->player->y: %d\n", (int)data->player->x, (int)data->player->y);
-	printf("rotation: %d\n", data->player->rotation);*/
-	//printf("vector Raydir >>> ray->vector.x : %f, ray->vector.y: %f \n", ray->vector.x, ray->vector.y);
-
 	deltaDist(ray);
 	sideDist(data, ray);
 
-	/*printf("(int)data->player->x : %d, (int)data->player->y : %d\n", (int)data->player->x, (int)data->player->y);
-	printf("ray->deltaDistX: %f, ray->deltaDistY : %f\n", ray->deltaDistX, ray->deltaDistY);
-	printf("ray->sideDistX: %f, ray->sideDistY : %f\n", ray->sideDistX, ray->sideDistY);
-	printf("ray->stepX: %d, ray->stepY: %d\n", ray->stepX, ray->stepY);*/
-	
 	t_xy	inter;
 	double	distance;
 
@@ -77,61 +63,6 @@ void	raycasting(t_data *data, double factor)
 	draw_wall(data, data->map->elements, ray, factor);
 }
 
-/*int	some_maths(t_data *data, double factor)
-{
-
-	double	perpWallDist;
-	if (ray->axis == 0)
-	{
-		perpWallDist = ray->sideDistX;
-	}
-	else if (ray->axis == 1)
-	{
-		perpWallDist = ray->sideDistY;
-	}
-	float ca = (data->player->rotation * PI / 180) - atan(-ray->vector.y / ray->vector.x);
-	if (ca < 0)
-		ca += 2 * PI;
-	else if (ca > 2 * PI)
-		ca -= 2 * PI;
-	perpWallDist *= cos(ca);
-	int	lineHeight = (int)(W_HEIGHT * (int)(int)data->map->tile_size * 2 / perpWallDist);
-	//fprintf(stderr, "HEIGHT: %d\n", lineHeight);
-	int colour;
-	if (ray->colour == NORTH_TEXTURE)
-	{
-		colour = 0x0047AB;
-		// if (ray->axis == 1)
-		// 	colour /= 2;
-	}
-	else if (ray->colour == SOUTH_TEXTURE)
-	{
-		colour = 0xFAFA33;
-		// if (ray->axis == 1)
-		// 	colour /= 2;
-	}
-	else if (ray->colour == WEST_TEXTURE)
-	{
-		colour = 0x228B22;
-		// if (ray->axis == 1)
-		// 	colour /= 2;
-	}
-	else if (ray->colour == EAST_TEXTURE)
-	{
-		colour = 0xD22B2B;
-		// if (ray->axis == 1)
-		// 	colour /= 2;
-	}
-	else if (ray->colour == DEFAULT)
-	{
-		colour = 0xFFFFFF;
-		// if (ray->axis == 1)
-		// 	colour /= 2;
-	}
-	draw_wall(info->data, info, factor, abs(lineHeight), colour, inter, ray->axis);
-	return (0);
-}
-*/
 t_xy	find_collision(t_data *data, t_ray *ray)
 {
 	t_xy	inter;
@@ -142,13 +73,13 @@ t_xy	find_collision(t_data *data, t_ray *ray)
 		{
 			inter = first_int_X(data, ray);
 			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
-			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+			if (check_wall_collision(data, ray, ray->vector, inter) == true)
 				return (inter);
-			while (fabs(ray->sideDistX + (ray->deltaDistX * (int)data->map->tile_size)) < fabs(ray->sideDistY))
+			while (fabs(ray->sideDistX + (ray->deltaDistX * data->map->tile_size)) < fabs(ray->sideDistY))
 			{
 				inter = intersection_X(data, ray);
 				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
-				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+				if (check_wall_collision(data, ray, ray->vector, inter) == true)
 					return (inter);
 			}
 		}
@@ -156,7 +87,7 @@ t_xy	find_collision(t_data *data, t_ray *ray)
 		{
 			inter = first_int_Y(data, ray);
 			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
-			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+			if (check_wall_collision(data, ray, ray->vector, inter) == true)
 				return (inter);
 		}
 
@@ -167,13 +98,13 @@ t_xy	find_collision(t_data *data, t_ray *ray)
 		{
 			inter = first_int_Y(data, ray);
 			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
-			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+			if (check_wall_collision(data, ray, ray->vector, inter) == true)
 				return (inter);
-			while (fabs(ray->sideDistY + (ray->deltaDistY * (int)data->map->tile_size)) < fabs(ray->sideDistX))
+			while (fabs(ray->sideDistY + (ray->deltaDistY * data->map->tile_size)) < fabs(ray->sideDistX))
 			{
 				inter = intersection_Y(data, ray);
 				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
-				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+				if (check_wall_collision(data, ray, ray->vector, inter) == true)
 					return (inter);
 			}
 		}
@@ -181,22 +112,22 @@ t_xy	find_collision(t_data *data, t_ray *ray)
 		{
 			inter = first_int_X(data, ray);
 			// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
-			if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+			if (check_wall_collision(data, ray, ray->vector, inter) == true)
 				return (inter);
 		}
 
 	}
 	while (1)
 	{
-		if ((fabs(ray->sideDistX + (ray->deltaDistX * (int)data->map->tile_size))
-			< fabs(ray->sideDistY + (ray->deltaDistY * (int)data->map->tile_size))
+		if ((fabs(ray->sideDistX + (ray->deltaDistX * data->map->tile_size))
+			< fabs(ray->sideDistY + (ray->deltaDistY * data->map->tile_size))
 			|| ray->vector.y == 0) && ray->vector.x != 0)
 		{
 			if (ray->vector.x != 0)
 			{
 				inter = intersection_X(data, ray);
 				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x0000FF00);
-				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+				if (check_wall_collision(data, ray, ray->vector, inter) == true)
 					break;
 			}
 		}
@@ -206,7 +137,7 @@ t_xy	find_collision(t_data *data, t_ray *ray)
 			{
 				inter = intersection_Y(data, ray);
 				// my_mlx_pixel_put(data->window->screen, inter.x, inter.y, 0x00FF00FF);
-				if (check_wall_collision(data, ray, ray->vector, inter.x, inter.y) == true)
+				if (check_wall_collision(data, ray, ray->vector, inter) == true)
 					break;
 			}
 		}
@@ -255,10 +186,9 @@ t_xy	first_int_X(t_data *data, t_ray *ray)
 	int		a;
 	int		b;
 	t_xy	inter;
-	
+
 	if (ray->vector.x > 0)
 		ray->c_mapx++;
-	//a = data->map->grid[ray->c_mapx][ray->c_mapy].x_o - (int)data->player->x;
 	a = data->map->grid[ray->c_mapx][ray->c_mapy].x_o - (int)data->player->x;
 	b = (int)sqrt(fabs(pow(ray->sideDistX, 2) - powf(a, 2)));
 	inter.x = ray->c_mapx * (int)data->map->tile_size;
@@ -272,7 +202,7 @@ t_xy	first_int_Y(t_data *data, t_ray *ray)
 	int		a;
 	int		b;
 	t_xy	inter;
-	
+
 	if (ray->vector.y > 0)
 		ray->c_mapy++;
 	a = data->map->grid[ray->c_mapx][ray->c_mapy].y_o - (int)data->player->y;
@@ -282,7 +212,6 @@ t_xy	first_int_Y(t_data *data, t_ray *ray)
 	ray->axis = 1;
 	return (inter);
 }
-
 
 t_xy	intersection_X(t_data *data, t_ray *ray)
 {
@@ -305,7 +234,7 @@ t_xy	intersection_Y(t_data *data, t_ray *ray)
 	int		a;
 	int		b;
 	t_xy	inter;
-	
+
 	ray->c_mapy += ray->stepY;
 	a = data->map->grid[ray->c_mapx][ray->c_mapy].y_o - (int)data->player->y;
 	ray->sideDistY += (ray->deltaDistY * (int)data->map->tile_size);
