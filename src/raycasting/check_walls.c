@@ -20,7 +20,8 @@ bool	west_wall(t_data *data, t_ray *ray, int i, int j)
 	if (grid[i - 1][j].wall)
 	{
 		ray->colour = WEST;
-		disco_wall(data, i - 1, j);
+		grid[i - 1][j].vision = true;
+		// disco_wall(data, i - 1, j);
 		return (true);
 	}
 	return (false);
@@ -34,7 +35,8 @@ bool	east_wall(t_data *data, t_ray *ray, int i, int j)
 	if (grid[i][j].wall)
 	{
 		ray->colour = EAST;
-		disco_wall(data, i, j);
+		grid[i][j].vision = true;
+		// disco_wall(data, i, j);
 		return (true);
 	}
 	return (false);
@@ -48,7 +50,8 @@ bool	south_wall(t_data *data, t_ray *ray, int i, int j)
 	if (grid[i][j].wall)
 	{
 		ray->colour = SOUTH;
-		disco_wall(data, i, j);
+		grid[i][j].vision = true;
+		// disco_wall(data, i, j);
 		return (true);
 	}
 	return (false);
@@ -62,7 +65,8 @@ bool	north_wall(t_data *data, t_ray *ray, int i, int j)
 	if (grid[i][j - 1].wall)
 	{
 		ray->colour = NORTH;
-		disco_wall(data, i, j - 1);
+		grid[i][j - 1].vision = true;
+		// disco_wall(data, i, j - 1);
 		return (true);
 	}
 	return (false);
@@ -76,7 +80,8 @@ bool	northwest(t_data *data, t_ray *ray, int i, int j)
 	if (grid[i - 1][j - 1].wall)
 	{
 		ray->colour = NORTH;
-		disco_wall(data, i - 1, j - 1);
+		grid[i - 1][j - 1].vision = true;
+		// disco_wall(data, i - 1, j - 1);
 		return (true);
 	}
 	return (false);
