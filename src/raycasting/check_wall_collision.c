@@ -45,7 +45,6 @@ void	disco_wall(t_data *data, int dx, int dy)
 
 	// if (!data->buttons->minimap)
 	// 	return ;
-	printf("%d\n", i);
 	if (i < 10)
 		colour = 0xf1c937;
 	else if (10 <= i && i < 20)
