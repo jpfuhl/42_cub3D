@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:39 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 19:47:34 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 13:05:55 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@ typedef struct s_xy
 typedef struct s_ray
 {
 	t_xy	vector;
+	t_xy	dir;
 	int		c_mapx;
 	int		c_mapy;
-	double	sideDistX;
-	double	sideDistY;
-	double	deltaDistX;
-	double	deltaDistY;
-	int		stepX;
-	int		stepY;
+	double	sidedistx;
+	double	sidedisty;
+	double	deltax;
+	double	deltay;
+	int		stepx;
+	int		stepy;
 	int		axis;
 	int		colour;
 	int		wall;

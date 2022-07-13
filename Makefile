@@ -6,7 +6,7 @@
 #    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/13 10:59:12 by arendon-         ###   ########.fr        #
+#    Updated: 2022/07/13 12:26:53 by arendon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRCS		=	$Smain.c \
 				$S$Xcheck_wall_collision.c \
 				$S$Xcheck_walls.c \
 				$S$Xdda_algorithm.c \
+				$S$Xintersec_points.c \
 				$S$Xraycasting.c \
 				$S$Rcreate_image.c \
 				$S$Rdraw_background.c \

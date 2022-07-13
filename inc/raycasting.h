@@ -6,7 +6,7 @@
 /*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:24 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 11:59:33 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/13 13:51:28 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@
 
 /* RAYCASTING */
 void	raycasting(t_data *data, double factor);
+void	calculate_plane_vector(t_data *data, t_ray *ray, double factor);
 t_xy	find_collision(t_data *data, t_ray *ray);
-void	deltaDist(t_ray *ray);
-void	sideDist(t_data *data, t_ray *ray);
-t_xy	first_int_X(t_data *data, t_ray *ray);
-t_xy	first_int_Y(t_data *data, t_ray *ray);
-t_xy	intersection_X(t_data *data, t_ray *ray);
-t_xy	intersection_Y(t_data *data, t_ray *ray);
+void	deltadist(t_ray *ray);
+void	sidedist(t_data *data, t_ray *ray);
+
+/*intersec_points.c*/
+t_xy	first_int_x(t_data *data, t_ray *ray);
+t_xy	first_int_y(t_data *data, t_ray *ray);
+t_xy	intersection_x(t_data *data, t_ray *ray);
+t_xy	intersection_y(t_data *data, t_ray *ray);
 
 /* check_walls.c */
 bool	west_wall(t_data *data, t_ray *ray, int i, int j);
