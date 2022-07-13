@@ -6,7 +6,7 @@
 /*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:24 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 13:51:28 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:38:32 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@
 /* RAYCASTING */
 void	raycasting(t_data *data, double factor);
 void	calculate_plane_vector(t_data *data, t_ray *ray, double factor);
-t_xy	find_collision(t_data *data, t_ray *ray);
 void	deltadist(t_ray *ray);
 void	sidedist(t_data *data, t_ray *ray);
+
+/* find_collision.c*/
+void	find_collision(t_data *data, t_ray *ray, t_xy *inter);
 
 /*intersec_points.c*/
 t_xy	first_int_x(t_data *data, t_ray *ray);

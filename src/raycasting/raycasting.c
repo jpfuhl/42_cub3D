@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:03:22 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/13 16:50:04 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 18:36:14 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	raycasting(t_data *data, double factor)
 	calculate_plane_vector(data, ray, factor);
 	deltadist(ray);
 	sidedist(data, ray);
-	inter = find_collision(data, ray);
-	distance = sqrt(pow(inter.x - data->player->x, 2) + pow(inter.y - data->player->y, 2));
+	find_collision(data, ray, &inter);
+	distance = sqrt(pow(inter.x - data->player->x, 2)
+			+ pow(inter.y - data->player->y, 2));
 	if (data->buttons->minimap)
 		dda_algorithm_punk(data, data->player->x, data->player->y, inter);
 	ray->intersection = inter;
@@ -54,80 +55,6 @@ void	calculate_plane_vector(t_data *data, t_ray *ray, double factor)
 				+ powf(ray->vector.y, 2)));
 	ray->c_mapx = (int)data->player->x / (int)data->map->tile_size;
 	ray->c_mapy = (int)data->player->y / (int)data->map->tile_size;
-}
-
-t_xy	find_collision(t_data *data, t_ray *ray)
-{
-	t_xy	inter;
-
-	if (fabs(ray->sidedistx) < fabs(ray->sidedisty))
-	{
-		if (ray->dir.x != 0)
-		{
-			inter = first_int_x(data, ray);
-			if (check_wall_collision(data, ray, ray->dir, inter) == true)
-				return (inter);
-			while (fabs(ray->sidedistx + (ray->deltax * data->map->tile_size)) < fabs(ray->sidedisty))
-			{
-				inter = intersection_x(data, ray);
-				if (check_wall_collision(data, ray, ray->dir, inter) == true)
-					return (inter);
-			}
-		}
-		if (ray->dir.y != 0)
-		{
-			inter = first_int_y(data, ray);
-			if (check_wall_collision(data, ray, ray->dir, inter) == true)
-				return (inter);
-		}
-
-	}
-	else
-	{
-		if (ray->dir.y != 0)
-		{
-			inter = first_int_y(data, ray);
-			if (check_wall_collision(data, ray, ray->dir, inter) == true)
-				return (inter);
-			while (fabs(ray->sidedisty + (ray->deltay * data->map->tile_size)) < fabs(ray->sidedistx))
-			{
-				inter = intersection_y(data, ray);
-				if (check_wall_collision(data, ray, ray->dir, inter) == true)
-					return (inter);
-			}
-		}
-		if (ray->dir.x != 0)
-		{
-			inter = first_int_x(data, ray);
-			if (check_wall_collision(data, ray, ray->dir, inter) == true)
-				return (inter);
-		}
-
-	}
-	while (1)
-	{
-		if ((fabs(ray->sidedistx + (ray->deltax * data->map->tile_size))
-				< fabs(ray->sidedisty + (ray->deltay * data->map->tile_size))
-				|| ray->dir.y == 0) && ray->dir.x != 0)
-		{
-			if (ray->dir.x != 0)
-			{
-				inter = intersection_x(data, ray);
-				if (check_wall_collision(data, ray, ray->dir, inter) == true)
-					break ;
-			}
-		}
-		else
-		{
-			if (ray->dir.y != 0)
-			{
-				inter = intersection_y(data, ray);
-				if (check_wall_collision(data, ray, ray->dir, inter) == true)
-					break ;
-			}
-		}
-	}
-	return (inter);
 }
 
 void	deltadist(t_ray *ray)
