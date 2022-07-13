@@ -30,7 +30,7 @@ void	draw_player(t_data *data, t_image *image, double x, double y);
 void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
 void	draw_map(t_data *data, t_image *image);
 void	draw_wall(t_data *data, t_element *elements, t_ray *ray, double i);
-
+void	draw_minimap_new(t_data *data, t_image *image);
 void	draw_minimap(void);
 // void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
 

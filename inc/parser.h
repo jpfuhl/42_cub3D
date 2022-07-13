@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:41:06 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 19:42:13 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 16:47:28 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		convert_rgb_to_hex(t_element *element);
 
 void	parse_map(t_data *data, t_map *map, int pos);
 void	set_dimensions(t_map *map, char **cub_file, int i);
-void	set_tile_size(t_map *map);
+void	set_tile_size(t_data *data, t_map *map);
 t_tile	**create_tile_grid(t_map *map);
 void	set_tile_grid(t_map *map, char **cub_file, int pos);
 void	check_grid_borders(t_map *map, t_tile **grid);

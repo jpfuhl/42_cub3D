@@ -6,11 +6,28 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:29 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 18:27:34 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 16:42:49 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/rendering.h"
+
+static bool	active_buttons(t_buttons *buttons)
+{
+	if (buttons->move_forward)
+		return (true);
+	if (buttons->move_backward)
+		return (true);
+	if (buttons->move_right)
+		return (true);
+	if (buttons->move_left)
+		return (true);
+	if (buttons->turn_right)
+		return (true);
+	if (buttons->turn_left)
+		return (true);
+	return (false);
+}
 
 static void	turn(t_data *data, int rotation_speed)
 {
@@ -90,6 +107,7 @@ int	movement(t_data *data)
 		turn(data, rotation_speed);
 	if (data->buttons->turn_left)
 		turn(data, -rotation_speed);
-	render_frame(data, data->window, data->mlx);
+	if (active_buttons(data->buttons))
+		render_frame(data, data->window, data->mlx);
 	return (0);
 }

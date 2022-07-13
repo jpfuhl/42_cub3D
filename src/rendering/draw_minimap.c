@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
+/*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:20:14 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 16:10:40 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 17:38:04 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/rendering.h"
 
-void	draw_map(t_data *data, t_image *image)
+void	draw_minimap_new(t_data *data, t_image *image)
 {
 	int	colour;
+	int	count;
 	int	j;
 	int	i;
 
+	fprintf(stderr, "Player %d %d\n", data->player->i, data->player->j);
+	fprintf(stderr, "MAP!	%d %d\n", data->player->i - 7, data->player->j - 7);
 	colour = 0;
 	i = 0;
-	while (i < data->map->width)
+	count = 0;
+	while (i < 15)
 	{
 		j = 0;
-		while (j < data->map->height)
+		while (j < 15)
 		{
-			if (data->map->grid[i][j].id == '1' || data->map->grid[i][j].id == ' ')
+			if (count % 2)
 			{
-				colour = 0x0A0A0A;
-				draw_square(image, data->map->tile_size, i, j, colour);
+				colour = 0x000000;
+				draw_square(image, 15, i, j, colour);
 			}
-			else if (data->map->grid[i][j].id != '1')
+			else
 			{
-				colour = 0x18191A;
-				draw_square(image, data->map->tile_size, i, j, colour);
+				colour = 0xf1c937;
+				draw_square(image, 15, i, j, colour);
 			}
+			count++;
 			j++;
 		}
 		i++;

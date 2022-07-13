@@ -20,24 +20,25 @@ NORTh-BLUE
 
 void	disco_wall(t_data *data, int dx, int dy)
 {
-	static int	i;// = 0;
+	static int	i = 0;
 	int			colour;
 
-	i = 0;
-	colour = -1;
+	if (!data->buttons->minimap)
+		return ;
+	if (i < 5000)
+		colour = 0xf1c937;
+	else if (5000 <= i && i < 10000)
+		colour = 0x00babc;
+	else if (10000 <= i && i < 15000)
+		colour = 0xd101c0;
 	// if (i % 500 == 0 && i % 300 == 0)
 	// 	colour = 0x00babc;
 	// else if (i % 500 == 0)
 	// 	colour = 0xd101c0;
-	if (i % 300 == 0 && i % 500 == 0)
-		colour = 0xf1c937;
-	else
-		colour = -1;
 	i++;
-	if (i == 300000)
+	if (i == 15000)
 		i = 0;
-	if (colour != -1)
-		draw_square(data->window->map, data->map->tile_size, dx, dy, colour);
+	draw_square(data->window->map, data->map->tile_size, dx, dy, colour);
 }
 
 bool	check_wall_collision(t_data *data, t_ray *ray, t_xy vector, t_xy inter)

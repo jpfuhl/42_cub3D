@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:59 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/11 21:05:51 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 16:12:19 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,20 @@
 
 void	draw_player(t_data *data, t_image *image, double x, double y)
 {
-	int		i;
-	int		j;
-	double	ang_rad;
+	int	factor;
+	int	i;
+	int	j;
 
-	ang_rad = data->player->rotation * 3.14159 / 180;
-	i = 0;
+	factor = -12;
 	j = 0;
-	while (i < 1)
+	while (j < 25)
 	{
-		draw_pixel(image, x + cos(ang_rad) * (i) - sin(ang_rad) * (j),
-			y - (sin(ang_rad) * (i) + cos(ang_rad) * (j)), 0xFFFFFF);
-		i++;
+		i = 0;
+		while (i < 25)
+		{
+			draw_pixel(image, x + factor + i, y + factor + j, 0xf1c937);
+			i++;
+		}
+		j++;
 	}
-	// while (i > 30)
-	// {
-	// 	draw_pixel(image, x + cos(ang_rad) * (i) - sin(ang_rad) * (j),
-	// 		y - (sin(ang_rad) * (i) + cos(ang_rad) * (j)), 0xFFFFFF);
-	// 	draw_pixel(image, x + cos(ang_rad) * (i) - sin(ang_rad) * (-j),
-	// 		y - (sin(ang_rad) * (i) + cos(ang_rad) * (-j)), 0xFFFFFF);
-	// 	j++;
-	// 	i--;
-	// }
 }

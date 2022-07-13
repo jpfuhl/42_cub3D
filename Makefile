@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
+#    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/13 12:26:53 by arendon-         ###   ########.fr        #
+#    Updated: 2022/07/13 17:28:58 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCS		=	$Smain.c \
 				$S$Rmovement.c \
 				$S$Rrender_frame.c \
 				$S$Rresize_image.c \
+				$S$Rdraw_minimap.c \
 
 
 

@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 12:53:15 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 11:14:03 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 13:15:30 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	resize_image(t_image *destination, t_image *source)
 			colour = get_pixel_from_source(destination, source, x, y);
 			if (colour)
 				draw_pixel(destination, x, y, colour);
+			else
+				draw_pixel(destination, x, y, 0xFFFFFF);
 			x++;
 		}
 		y++;

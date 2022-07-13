@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:35:36 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 17:24:04 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 16:46:14 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	parse_map(t_data *data, t_map *map, int pos)
 	if (!map->cub[map_start])
 		exit_with_error(MAP_EMPTY);
 	set_dimensions(map, map->cub, map_start);
-	set_tile_size(map);
+	set_tile_size(data, map);
 	map->grid = create_tile_grid(map);
 	set_tile_grid(map, map->cub, map_start);
 	check_grid_borders(map, map->grid);
