@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   dda_algorithm.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 21:23:48 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/13 16:11:47 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/13 18:42:21 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/raycasting.h"
 
-static void color_point(t_data *data, double x, double y, int i)
+static void	color_point(t_data *data, double x, double y, int i)
 {
 	if (i % 12 == 0)
 		draw_pixel(data->window->map, x, y, 0xf1c937);
@@ -38,8 +38,6 @@ int	dda_algorithm_punk(t_data *data, double player_x, double player_y, t_xy p2)
 	i = 1;
 	while (i < steps)
 	{
-		// if (i % 6 == 0)
-		// 	color_point(data, player_x, player_y, i);
 		draw_pixel(data->window->map, player_x, player_y, 0x2b2d2e);
 		player_x = player_x + (dif_x / steps);
 		player_y = player_y + (dif_y / steps);
