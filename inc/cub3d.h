@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:40:07 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 12:24:40 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 18:03:13 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,8 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-//We will use:
 # include <math.h>
-# include <limits.h>
 
-// error.h
-// memory.h
-// parsing.h
-// rendering.h
-
-/*	MOVEMENT */
 /*
 **	Brushes used for making textures:
 **	Brushes by Brusheezy!

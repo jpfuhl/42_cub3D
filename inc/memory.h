@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 19:56:49 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 19:06:16 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 18:03:26 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,5 @@ void		free_player(t_player *player);
 t_buttons	*create_buttons(void);
 void		default_initialize_buttons(t_buttons *buttons);
 void		free_buttons(t_buttons *buttons);
-
-// t_camera	*create_camera(void);
-// void		default_initialize_camera(t_camera *camera);
-// void		free_camera(t_camera *camera);
 
 #endif

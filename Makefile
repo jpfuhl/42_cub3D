@@ -6,7 +6,7 @@
 #    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/14 17:14:29 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/14 17:49:03 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ P			=	parsing/
 X			=	raycasting/
 R			=	rendering/
 
- #move get_next_line to libft ?
 OBJS		=	$(patsubst $S%.c, $O%.o, $(SRCS))
 SRCS		=	$Smain.c \
 				$S$Eexit_with_error.c \
@@ -69,15 +68,11 @@ SRCS		=	$Smain.c \
 				$S$Rrender_frame.c \
 				$S$Rresize_image.c \
 
-
-
-
 # MLX = -Lminilibx -lmlx -framework OpenGL -framework AppKit
 LIBFT_PATH = libft/
 # LIBFT =	make -C $(LIBFT_PATH)
 LIBRARIES	=	-Llibft -lft -Llibmlx -lmlx -framework OpenGL -framework AppKit
 INCLUDES	=	-I ./inc -Ilibft -Ilibmlx
-
 
 all: $(NAME)
 
