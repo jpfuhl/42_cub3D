@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:42 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 16:35:46 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 16:52:47 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,26 @@ static int	close_window(t_data *data)
 {
 	free_data(data);
 	exit (0);
+	return (0);
+}
+
+static int	move_mouse(int x, int y, t_data *data)
+{
+	if (data->buttons->tmp == 1)
+		data->buttons->tmp = x;
+	if (x < data->buttons->tmp - 10)
+	{
+		data->player->rotation = (data->player->rotation + 10) % 360;
+		data->buttons->tmp = x;
+	}
+	else if (x > data->buttons->tmp + 10)
+	{
+		data->player->rotation = (data->player->rotation - 10) % 360;
+		if (data->player->rotation < 0)
+			data->player->rotation += 360;
+		data->buttons->tmp = x;
+	}
+	render_frame(data, data->window, data->mlx);
 	return (0);
 }
 
@@ -64,6 +84,7 @@ void	keyhooks(t_data *data, t_window *window, void *mlx)
 {
 	mlx_hook(window->pointer, 02, 0L, &press_buttons, data);
 	mlx_hook(window->pointer, 03, 0L, &release_buttons, data);
+	mlx_hook(window->pointer, 06, 0L, &move_mouse, data);
 	mlx_hook(window->pointer, 17, 0, &close_window, data);
 	mlx_loop_hook(mlx, &movement, data);
 }
