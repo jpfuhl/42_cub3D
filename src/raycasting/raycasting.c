@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 17:03:22 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/14 14:28:11 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/14 17:34:41 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	raycasting(t_data *data, double factor)
 	find_collision(data, ray, &inter);
 	distance = sqrt(pow(inter.x - data->player->x, 2)
 			+ pow(inter.y - data->player->y, 2));
-	if (data->buttons->minimap)
-		dda_punk(data, data->player->x, data->player->y, inter);
 	ray->intersection = inter;
 	calculate_perp_wall_distance(data->player, ray);
 	calculate_line_position(ray, inter, data->map->tile_size);
