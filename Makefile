@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
+#    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/14 13:46:03 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/14 15:32:07 by arendon-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ SRCS		=	$Smain.c \
 				$S$Xfind_collision.c \
 				$S$Xintersec_points.c \
 				$S$Xraycasting.c \
+				$S$Rcheck_if_is_wall.c \
 				$S$Rcreate_image.c \
 				$S$Rdraw_background.c \
 				$S$Rdraw_minimap.c \

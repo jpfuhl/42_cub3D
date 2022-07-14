@@ -3,18 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   movement_collision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:23 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 12:23:59 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 15:30:18 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/rendering.h"
 
-static bool	check_if_is_wall(t_tile **grid, int i, int j)
+static bool	search_wall_x(t_data *data, int *old_x, int old_y, int new_x)
 {
-	if (grid[i][j].wall)
+	double	tile;
+
+	tile = data->map->tile_size;
+	if ((*old_x) < new_x)
+			(*old_x)++;
+	else
+		(*old_x)--;
+	if (check_if_is_wall(data->map->grid, (*old_x) / tile, old_y / tile))
+		return (true);
+	return (false);
+}
+
+static bool	search_wall_y(t_data *data, int old_x_copy, int *old_y, int new_y)
+{
+	double	tile;
+
+	tile = data->map->tile_size;
+	if ((*old_y) < (int)new_y)
+		(*old_y)++;
+	else
+		(*old_y)--;
+	if (check_if_is_wall(data->map->grid, old_x_copy / tile, (*old_y) / tile))
 		return (true);
 	return (false);
 }
@@ -24,28 +45,18 @@ static bool	going_across(t_data *data, double new_x, double new_y)
 	int		old_x;
 	int		old_y;
 	int		old_x_copy;
-	double	tile;
 
 	old_x = (int)data->player->x;
 	old_y = (int)data->player->y;
 	old_x_copy = old_x;
-	tile = data->map->tile_size;
 	while (old_x != (int)new_x)
 	{
-		if (old_x < (int)new_x)
-			old_x++;
-		else
-			old_x--;
-		if (check_if_is_wall(data->map->grid, old_x / tile, old_y / tile))
+		if (search_wall_x(data, &old_x, old_y, (int)new_x) == true)
 			return (true);
 	}
 	while (old_y != (int)new_y)
 	{
-		if (old_y < (int)new_y)
-			old_y++;
-		else
-			old_y--;
-		if (check_if_is_wall(data->map->grid, old_x_copy / tile, old_y / tile))
+		if (search_wall_y(data, old_x_copy, &old_y, (int)new_y) == true)
 			return (true);
 	}
 	return (false);

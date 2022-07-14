@@ -6,7 +6,7 @@
 /*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:44:32 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 14:36:19 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:34:03 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		get_pixel_from_source(t_image *dst, t_image *src, int x, int y);
 int		get_pixel_colour(t_image *image, int x, int y);
 
 /*	MOVEMENT */
+bool	check_if_is_wall(t_tile **grid, int i, int j);
 void	keyhooks(t_data *data, t_window *window, void *mlx);
 int		movement(t_data *data);
 bool	movement_collision(t_data *data, double x, double y);
