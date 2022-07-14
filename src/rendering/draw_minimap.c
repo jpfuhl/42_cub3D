@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:20:14 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 13:53:08 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 14:39:00 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	pick_colour(void)
 	return (colour);
 }
 
-void	draw_minimap(t_data *data, t_map *map, t_player *player, t_image *image)
+void	draw_minimap(t_data *data, t_map *map, t_player *player, t_image *img)
 {
 	int		minimap_size;
 	int		factor;
@@ -66,10 +66,10 @@ void	draw_minimap(t_data *data, t_map *map, t_player *player, t_image *image)
 		while (j < minimap_size)
 		{
 			if (i_start < 0 || j_start < 0)
-				draw_pixel(image, i, j, 0x0a0a0a);
+				draw_pixel(img, i, j, 0x0a0a0a);
 			else if (i_start >= 1.0 * data->map->width || j_start >= 1.0 * data->map->height)
 			{
-				draw_pixel(image, i, j, 0x0a0a0a);
+				draw_pixel(img, i, j, 0x0a0a0a);
 			}
 			else
 			{
@@ -78,11 +78,11 @@ void	draw_minimap(t_data *data, t_map *map, t_player *player, t_image *image)
 					if (data->map->grid[(int)i_start][(int)j_start].vision)
 					{
 						colour = pick_colour();
-						draw_pixel(image, i, j, colour);
+						draw_pixel(img, i, j, colour);
 					}
 				}
 				else
-					draw_pixel(image, i, j, 0x18191a);
+					draw_pixel(img, i, j, 0x18191a);
 			}
 			j_start += step_size;
 			j++;
@@ -90,7 +90,7 @@ void	draw_minimap(t_data *data, t_map *map, t_player *player, t_image *image)
 		i_start += step_size;
 		i++;
 	}
-	draw_player(data, image, 125.0, 125.0);
+	draw_player(data, img, 125.0, 125.0);
 
 	// RESET VISION;
 	for (int i = 0; i < data->map->width; i++)

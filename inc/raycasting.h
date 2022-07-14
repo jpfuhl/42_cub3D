@@ -6,7 +6,7 @@
 /*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:24 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 18:38:32 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/14 14:27:01 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ void	calculate_line_height(t_data *data, t_window *window, t_ray *ray);
 // void	calculate_plane_vector(t_data *data, t_ray *ray, float i);
 
 /* DDA - ALGORITHM */
-int		dda_algorithm_punk(t_data *data, double player_x, double player_y, t_xy p2);
+int		dda_punk(t_data *data, double player_x, double player_y, t_xy p2);
 
 #endif

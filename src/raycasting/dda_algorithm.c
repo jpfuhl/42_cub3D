@@ -6,7 +6,7 @@
 /*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 21:23:48 by arendon-          #+#    #+#             */
-/*   Updated: 2022/07/13 18:42:21 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/14 14:27:13 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	color_point(t_data *data, double x, double y, int i)
 		draw_pixel(data->window->map, x, y, 0x00babc);
 }
 
-int	dda_algorithm_punk(t_data *data, double player_x, double player_y, t_xy p2)
+int	dda_punk(t_data *data, double player_x, double player_y, t_xy p2)
 {
 	double	dif_x;
 	double	dif_y;

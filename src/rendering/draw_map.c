@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:20:14 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 16:10:40 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 14:40:46 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/rendering.h"
 
-void	draw_map(t_data *data, t_image *image)
+void	draw_map(t_map *map, t_image *image) //this funtion is not used
 {
 	int	colour;
 	int	j;
@@ -20,20 +20,20 @@ void	draw_map(t_data *data, t_image *image)
 
 	colour = 0;
 	i = 0;
-	while (i < data->map->width)
+	while (i < map->width)
 	{
 		j = 0;
-		while (j < data->map->height)
+		while (j < map->height)
 		{
-			if (data->map->grid[i][j].id == '1' || data->map->grid[i][j].id == ' ')
+			if (map->grid[i][j].id == '1' || map->grid[i][j].id == ' ')
 			{
 				colour = 0x0A0A0A;
-				draw_square(image, data->map->tile_size, i, j, colour);
+				draw_square(image, map->tile_size, i, j, colour);
 			}
-			else if (data->map->grid[i][j].id != '1')
+			else if (map->grid[i][j].id != '1')
 			{
 				colour = 0x18191A;
-				draw_square(image, data->map->tile_size, i, j, colour);
+				draw_square(image, map->tile_size, i, j, colour);
 			}
 			j++;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:59 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 13:51:08 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 14:44:48 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	draw_vision(t_data *data, t_player *player, double x, double y)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	double	ang_rad;
 
 	ang_rad = -player->rotation * PI / 180;
@@ -25,10 +25,14 @@ static void	draw_vision(t_data *data, t_player *player, double x, double y)
 		i = 0;
 		while (i < 20)
 		{
-			draw_pixel(data->window->map, x + cos(ang_rad + j * PI / 180) * (i) - sin(ang_rad + j * PI / 180) * 0,
-				y + sin(ang_rad + j * PI / 180) * (i) + cos(ang_rad + j * PI / 180) * 0, 0x2b2d2e);
-			draw_pixel(data->window->map, x + cos(ang_rad - j * PI / 180) * (i) - sin(ang_rad - j * PI / 180) * 0,
-				y + sin(ang_rad - j * PI / 180) * (i) + cos(ang_rad - j * PI / 180) * 0, 0x2b2d2e);
+			draw_pixel(data->window->map, x + cos(ang_rad + j * PI / 180) * (i)
+				- sin(ang_rad + j * PI / 180) * 0,
+				y + sin(ang_rad + j * PI / 180) * (i)
+				+ cos(ang_rad + j * PI / 180) * 0, 0x2b2d2e);
+			draw_pixel(data->window->map, x + cos(ang_rad - j * PI / 180) * (i)
+				- sin(ang_rad - j * PI / 180) * 0,
+				y + sin(ang_rad - j * PI / 180) * (i)
+				+ cos(ang_rad - j * PI / 180) * 0, 0x2b2d2e);
 			i++;
 		}
 		j += 2;
