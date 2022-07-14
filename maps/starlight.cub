@@ -1,10 +1,10 @@
-NO      textures/glitter1.xpm
-WE      textures/glitter2.xpm
-SO      textures/glitter3.xpm
-EA      textures/glitter4.xpm
+NO      textures/star1.xpm
+WE      textures/star2.xpm
+SO      textures/star4.xpm
+EA      textures/star3.xpm
 
-F    0,0,0
-C    0,0,0
+F    20,20,20
+C    5,5,5
 
 
 111111111111
@@ -19,5 +19,3 @@ C    0,0,0
 100000010001
 100000000001
 111111111111
-
-

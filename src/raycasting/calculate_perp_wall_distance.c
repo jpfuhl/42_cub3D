@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculate_perp_wall_distance.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 10:40:43 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 13:16:31 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/14 12:09:47 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:39 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 18:37:12 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 12:08:53 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stdbool.h>
 
-# define WINDOW_WIDTH	1024 // 640 1024
-# define WINDOW_HEIGHT	1024 // 640 1024
+# define WINDOW_WIDTH	1920 // 1024 // 640 1024
+# define WINDOW_HEIGHT	1080 //1024 // 640 1024
 # define TEXTURE_SIZE	128
 # define PI				3.141592
 

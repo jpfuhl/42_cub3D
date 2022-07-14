@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:29 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 16:42:49 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 12:13:56 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	movement(t_data *data)
 	int		rotation_speed;
 
 	ang_rad = data->player->rotation * PI / 180;
-	velocity = 0.1 * data->map->tile_size;
+	velocity = 0.15 * data->map->tile_size;
 	rotation_speed = 5;
 	if (data->buttons->run)
 		velocity *= 2.0;

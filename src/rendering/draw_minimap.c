@@ -6,11 +6,56 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:20:14 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/13 20:43:01 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 12:02:44 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/rendering.h"
+
+static int	disco_wall1(void)
+{
+	// static int	i = 0;
+	// int			colour;
+
+	// if (!data->buttons->minimap)
+	// 	return ;
+	// if (i < 5000)
+	// 	colour = 0xf1c937;
+	// else if (5000 <= i && i < 10000)
+	// 	colour = 0x00babc;
+	// else if (10000 <= i && i < 15000)
+	// 	colour = 0xd101c0;
+	// // if (i % 500 == 0 && i % 300 == 0)
+	// // 	colour = 0x00babc;
+	// // else if (i % 500 == 0)
+	// // 	colour = 0xd101c0;
+	// i++;
+	// if (i == 15000)
+	// 	i = 0;
+	// draw_square(data->window->map, data->map->tile_size, dx, dy, colour);
+	
+	static int	i = 0;
+	int			colour;
+
+	// if (!data->buttons->minimap)
+	// 	return ;
+	if (i < 1000)
+		colour = 0xf1c937;
+	else if (1000 <= i && i < 2000)
+		colour = 0x00babc;
+	else if (2000 <= i && i < 3000)
+		colour = 0xf1c937;
+	else if (3000 <= i && i < 4000)
+		colour = 0xd101c0;
+	// if (i % 500 == 0 && i % 300 == 0)
+	// 	colour = 0x00babc;
+	// else if (i % 500 == 0)
+	// 	colour = 0xd101c0;
+	i++;
+	if (i == 4000)
+		i = 0;
+	return (colour);
+}
 
 void	draw_minimap_new(t_data *data, t_image *image)
 {
@@ -38,6 +83,7 @@ void	draw_minimap_new(t_data *data, t_image *image)
 
 	int	i;
 	int	j;
+	int colour;
 
 	i = 0;
 	while (i < minimap_size)
@@ -47,10 +93,10 @@ void	draw_minimap_new(t_data *data, t_image *image)
 		while (j < minimap_size)
 		{
 			if (i_start < 0 || j_start < 0)
-				draw_pixel(image, i, j, 0xff0000);
+				draw_pixel(image, i, j, 0x0a0a0a);
 			else if (i_start >= 1.0 * data->map->width || j_start >= 1.0 * data->map->height)
 			{
-				draw_pixel(image, i, j, 0xff0000);
+				draw_pixel(image, i, j, 0x0a0a0a);
 			}
 			else
 			{
@@ -58,13 +104,11 @@ void	draw_minimap_new(t_data *data, t_image *image)
 				{
 					if (data->map->grid[(int)i_start][(int)j_start].vision)
 					{
-						// disco_wall(data, i, j);
-						draw_pixel(image, i, j, 0xd101c0);
+						colour = disco_wall1();
+						draw_pixel(image, i, j, colour);
 					}
-					else
-						draw_pixel(image, i, j, 0xffffff);
 				}
-				else if (data->map->grid[(int)i_start][(int)j_start].id == '0')
+				else
 					draw_pixel(image, i, j, 0x18191a);
 			}
 			j_start += step_size;
@@ -73,7 +117,7 @@ void	draw_minimap_new(t_data *data, t_image *image)
 		i_start += step_size;
 		i++;
 	}
-	// draw_player(data, image, 25.0 * 5 + px, 25.0 * 5 + py);
+	draw_player(data, image, 125.0, 125.0);
 
 	// RESET VISION;
 	for (int i = 0; i < data->map->width; i++)

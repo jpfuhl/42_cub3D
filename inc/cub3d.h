@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:40:07 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 19:40:22 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 12:24:40 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@
 // rendering.h
 
 /*	MOVEMENT */
+/*
+**	Brushes used for making textures:
+**	Brushes by Brusheezy!
+*/
 
 #endif
