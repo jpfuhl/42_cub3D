@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:43:33 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 12:03:04 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 13:49:25 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,18 @@
 
 void	render_frame(t_data *data, t_window *window, void *mlx)
 {
-	double	map_width;
-	double	map_height;
+	int	ray_i;
 
-	map_width = data->map->width * data->map->tile_size;
-	map_height = data->map->height * data->map->tile_size;
 	create_image(data, &window->screen, data->window->width, data->window->height);
 	create_image(data, &window->map, 225, 225);
-	// draw_player(data, window->map, data->player->x / 128, data->player->y / 128);
-	// if (data->buttons->minimap)
-	// {
-	// 	create_image(data, &window->minimap, map_width / 6, map_height / 6);
-	// }
 	draw_background(window->screen, data->map->elements);
-	int	factor;
-
-	factor = 0;
-	while (factor < data->window->width)
+	ray_i = 0;
+	while (ray_i < data->window->width)
 	{
-		raycasting(data, 1.0 * factor);
-		factor++;
+		raycasting(data, 1.0 * ray_i);
+		ray_i++;
 	}
-	draw_minimap_new(data, window->map);
+	draw_minimap(data, data->map, data->player, window->map);
 	mlx_put_image_to_window(mlx, window->pointer, window->screen->pointer, 0, 0);
 	mlx_put_image_to_window(mlx, window->pointer, window->map->pointer, 8, 8);
-	// if (data->buttons->minimap)
-	// {
-	// 	resize_image(data->window->minimap, data->window->map);
-	// 	mlx_put_image_to_window(mlx, window->pointer, window->minimap->pointer, 8, 8);
-	// }
 }

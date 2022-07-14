@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:59 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 13:21:48 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/14 13:51:08 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	draw_vision(t_data *data, t_player *player, double x, double y)
 	while (j <= 41)
 	{
 		i = 0;
-		while (i < 30)
+		while (i < 20)
 		{
 			draw_pixel(data->window->map, x + cos(ang_rad + j * PI / 180) * (i) - sin(ang_rad + j * PI / 180) * 0,
 				y + sin(ang_rad + j * PI / 180) * (i) + cos(ang_rad + j * PI / 180) * 0, 0x2b2d2e);

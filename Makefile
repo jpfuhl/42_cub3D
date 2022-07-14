@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
+#    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/13 18:37:52 by arendon-         ###   ########.fr        #
+#    Updated: 2022/07/14 13:46:03 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ SRCS		=	$Smain.c \
 				$S$Xraycasting.c \
 				$S$Rcreate_image.c \
 				$S$Rdraw_background.c \
-				$S$Rdraw_map.c \
+				$S$Rdraw_minimap.c \
 				$S$Rdraw_pixel.c \
 				$S$Rdraw_player.c \
 				$S$Rdraw_square.c \
@@ -69,7 +69,6 @@ SRCS		=	$Smain.c \
 				$S$Rmovement.c \
 				$S$Rrender_frame.c \
 				$S$Rresize_image.c \
-				$S$Rdraw_minimap.c \
 
 
 

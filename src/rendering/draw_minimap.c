@@ -6,39 +6,17 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:20:14 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 12:02:44 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 13:53:08 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/rendering.h"
 
-static int	disco_wall1(void)
+static int	pick_colour(void)
 {
-	// static int	i = 0;
-	// int			colour;
-
-	// if (!data->buttons->minimap)
-	// 	return ;
-	// if (i < 5000)
-	// 	colour = 0xf1c937;
-	// else if (5000 <= i && i < 10000)
-	// 	colour = 0x00babc;
-	// else if (10000 <= i && i < 15000)
-	// 	colour = 0xd101c0;
-	// // if (i % 500 == 0 && i % 300 == 0)
-	// // 	colour = 0x00babc;
-	// // else if (i % 500 == 0)
-	// // 	colour = 0xd101c0;
-	// i++;
-	// if (i == 15000)
-	// 	i = 0;
-	// draw_square(data->window->map, data->map->tile_size, dx, dy, colour);
-	
 	static int	i = 0;
 	int			colour;
 
-	// if (!data->buttons->minimap)
-	// 	return ;
 	if (i < 1000)
 		colour = 0xf1c937;
 	else if (1000 <= i && i < 2000)
@@ -47,17 +25,13 @@ static int	disco_wall1(void)
 		colour = 0xf1c937;
 	else if (3000 <= i && i < 4000)
 		colour = 0xd101c0;
-	// if (i % 500 == 0 && i % 300 == 0)
-	// 	colour = 0x00babc;
-	// else if (i % 500 == 0)
-	// 	colour = 0xd101c0;
 	i++;
 	if (i == 4000)
 		i = 0;
 	return (colour);
 }
 
-void	draw_minimap_new(t_data *data, t_image *image)
+void	draw_minimap(t_data *data, t_map *map, t_player *player, t_image *image)
 {
 	int		minimap_size;
 	int		factor;
@@ -69,8 +43,8 @@ void	draw_minimap_new(t_data *data, t_image *image)
 
 	minimap_size = 225;
 	factor = 9;
-	i_start = data->player->x / 128 - factor / 2 - 1;
-	j_start = data->player->y / 128 - factor / 2 - 1;
+	i_start = player->x / 128 - factor / 2 - 1;
+	j_start = player->y / 128 - factor / 2 - 1;
 	step_size = 1.0 * factor / minimap_size;
 	
 
@@ -84,7 +58,6 @@ void	draw_minimap_new(t_data *data, t_image *image)
 	int	i;
 	int	j;
 	int colour;
-
 	i = 0;
 	while (i < minimap_size)
 	{
@@ -104,7 +77,7 @@ void	draw_minimap_new(t_data *data, t_image *image)
 				{
 					if (data->map->grid[(int)i_start][(int)j_start].vision)
 					{
-						colour = disco_wall1();
+						colour = pick_colour();
 						draw_pixel(image, i, j, colour);
 					}
 				}

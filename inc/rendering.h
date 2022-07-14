@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   rendering.h										:+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>	 +#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2022/07/12 19:42:33 by jpfuhl			#+#	#+#			 */
-/*   Updated: 2022/07/12 19:45:42 by jpfuhl		   ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rendering.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/14 13:44:32 by jpfuhl            #+#    #+#             */
+/*   Updated: 2022/07/14 13:49:37 by jpfuhl           ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RENDERING_H
@@ -30,9 +30,7 @@ void	draw_player(t_data *data, t_image *image, double x, double y);
 void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
 void	draw_map(t_data *data, t_image *image);
 void	draw_wall(t_data *data, t_element *elements, t_ray *ray, double i);
-void	draw_minimap_new(t_data *data, t_image *image);
-void	draw_minimap(void);
-// void	draw_square(t_image *image, int tile_size, int dx, int dy, int color);
+void	draw_minimap(t_data *data, t_map *map, t_player *player, t_image *image);
 
 void	create_image(t_data *data, t_image **image, int width, int height);
 char	*get_data_address(t_image *image);
