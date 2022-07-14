@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:59 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 11:53:23 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 13:21:48 by arendon-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	draw_vision(t_data *data, t_player *player, double x, double y)
 
 	ang_rad = -player->rotation * PI / 180;
 	j = 0;
-	while (j <= 30)
+	while (j <= 41)
 	{
 		i = 0;
 		while (i < 30)
