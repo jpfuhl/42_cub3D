@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:39 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 17:11:24 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:26:14 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_xy
 	double	y;
 }	t_xy;
 
-// change this
+/*	RAY */
 typedef struct s_ray
 {
 	t_xy	vector;
@@ -63,8 +63,6 @@ typedef struct s_ray
 	int		draw_end;
 	t_xy	intersection;
 }	t_ray;
-
-// CAMERA ?
 
 /*	PLAYER */
 typedef struct s_player

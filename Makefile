@@ -6,7 +6,7 @@
 #    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/14 16:57:54 by jpfuhl           ###   ########.fr        #
+#    Updated: 2022/07/14 17:14:29 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ SRCS		=	$Smain.c \
 				$S$Pset_player_position.c \
 				$S$Pset_texture.c \
 				$S$Pset_tile_grid.c \
-				$S$Pset_tile_size.c \
 				$S$Xcalculate_line_height.c \
 				$S$Xcalculate_line_position.c \
 				$S$Xcalculate_perp_wall_distance.c \

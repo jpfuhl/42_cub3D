@@ -6,10 +6,9 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:44:32 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 15:43:24 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:26:58 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef RENDERING_H
 # define RENDERING_H

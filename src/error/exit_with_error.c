@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 18:36:07 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/08 18:18:24 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:25:17 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,18 @@ static void	print_error_message(int type)
 		printf("Empty Cub3D file.\n");
 	else if (type == CUB_OPENING_ERROR)
 		printf("Failed to open Cub3D file.\n");
+	else if (type == INVALID_TILE_SIZE)
+		printf("Invalid size for tiles/textures.\n");
 }
 
 void	exit_with_error(int type)
 {
 	printf("Error!\n");
-	if (-6 < type && type < 0)
+	if (-7 < type && type < 0)
 		print_error_message(type);
-	else if (-12 < type && type < -5)
+	else if (-13 < type && type < -6)
 		print_map_error_message(type);
-	else if (-24 < type && type < -11)
+	else if (-25 < type && type < -12)
 		print_element_error_message(type);
 	exit(type);
 }

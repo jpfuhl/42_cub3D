@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:40:53 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 19:45:09 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:23:13 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 enum e_error_type
 {
-	ELEMENT_IDENTIFIER_ERROR = -23,
+	ELEMENT_IDENTIFIER_ERROR = -24,
 	TEXTURE_ARGUMENT_ERROR,
 	DUPLICATE_TEXTURE,
 	XPM_EXTENSION_ERROR,
@@ -36,6 +36,7 @@ enum e_error_type
 	MAP_NO_PLAYER,
 	MAP_MULTIPLE_PLAYER,
 	MAP_MISSING_WALL,
+	INVALID_TILE_SIZE,
 	CUB_OPENING_ERROR,
 	CUB_EMPTY_FILE,
 	CUB_EXTENSION_ERROR,
