@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:02:02 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 17:17:03 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 23:01:55 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ void	set_player_position(t_data *data, t_map *map, t_tile **grid)
 		while (j < map->height)
 		{
 			if (grid[i][j].id == 'N')
-				set_parameters(data, i, j, 270);
+				set_parameters(data, i, j, 90);
 			else if (grid[i][j].id == 'E')
 				set_parameters(data, i, j, 0);
 			else if (grid[i][j].id == 'S')
-				set_parameters(data, i, j, 90);
+				set_parameters(data, i, j, 270);
 			else if (grid[i][j].id == 'W')
 				set_parameters(data, i, j, 180);
 			j++;
