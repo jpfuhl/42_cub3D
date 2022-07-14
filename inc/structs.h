@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:39 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 12:08:53 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:11:24 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stdbool.h>
 
-# define WINDOW_WIDTH	1920 // 1024 // 640 1024
-# define WINDOW_HEIGHT	1080 //1024 // 640 1024
+# define WINDOW_WIDTH	1920
+# define WINDOW_HEIGHT	1080
 # define TEXTURE_SIZE	128
 # define PI				3.141592
 
@@ -142,6 +142,7 @@ typedef struct s_buttons
 	bool	turn_left;
 	bool	run;
 	bool	minimap;
+	int		tmp;
 }	t_buttons;
 
 typedef struct s_data

@@ -6,13 +6,10 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 13:44:32 by jpfuhl            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/07/14 15:34:03 by arendon-         ###   ########.fr       */
-=======
-/*   Updated: 2022/07/14 15:08:34 by jpfuhl           ###   ########.fr       */
->>>>>>> 0ae960c7383ea47bdab9bbf93a3f0860bc3236a6
+/*   Updated: 2022/07/14 15:43:24 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef RENDERING_H
 # define RENDERING_H

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+         #
+#    By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 19:04:01 by jpfuhl            #+#    #+#              #
-#    Updated: 2022/07/14 15:32:07 by arendon-         ###   ########.fr        #
+#    Updated: 2022/07/14 16:57:54 by jpfuhl           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,6 @@ SRCS		=	$Smain.c \
 				$S$Rdraw_minimap.c \
 				$S$Rdraw_pixel.c \
 				$S$Rdraw_player.c \
-				$S$Rdraw_square.c \
 				$S$Rdraw_wall.c \
 				$S$Rkeyhooks.c \
 				$S$Rmovement_collision.c \

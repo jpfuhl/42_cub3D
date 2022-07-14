@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:55:44 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/12 19:05:12 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 16:35:55 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	default_initialize_buttons(t_buttons *buttons)
 	buttons->turn_left = false;
 	buttons->run = false;
 	buttons->minimap = false;
+	buttons->tmp = 1;
 }
 
 t_buttons	*create_buttons(void)
