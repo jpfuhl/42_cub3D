@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: arendon- <arendon-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:19:59 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 14:44:48 by arendon-         ###   ########.fr       */
+/*   Updated: 2022/07/14 17:32:31 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@ static void	draw_vision(t_data *data, t_player *player, double x, double y)
 	int		i;
 	int		j;
 	double	ang_rad;
+	t_image	*img;
 
 	ang_rad = -player->rotation * PI / 180;
+	img = data->window->minimap;
 	j = 0;
 	while (j <= 41)
 	{
 		i = 0;
 		while (i < 20)
 		{
-			draw_pixel(data->window->map, x + cos(ang_rad + j * PI / 180) * (i)
+			draw_pixel(img, x + cos(ang_rad + j * PI / 180) * (i)
 				- sin(ang_rad + j * PI / 180) * 0,
 				y + sin(ang_rad + j * PI / 180) * (i)
 				+ cos(ang_rad + j * PI / 180) * 0, 0x2b2d2e);
-			draw_pixel(data->window->map, x + cos(ang_rad - j * PI / 180) * (i)
+			draw_pixel(img, x + cos(ang_rad - j * PI / 180) * (i)
 				- sin(ang_rad - j * PI / 180) * 0,
 				y + sin(ang_rad - j * PI / 180) * (i)
 				+ cos(ang_rad - j * PI / 180) * 0, 0x2b2d2e);

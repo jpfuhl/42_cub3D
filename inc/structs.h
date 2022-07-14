@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 19:42:39 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 17:26:14 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:29:49 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ typedef struct s_window
 	int		width;
 	int		height;
 	t_image	*screen;
-	t_image	*map;
 	t_image	*minimap;
 }	t_window;
 

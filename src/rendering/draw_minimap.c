@@ -6,7 +6,7 @@
 /*   By: jpfuhl <jpfuhl@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 19:20:14 by jpfuhl            #+#    #+#             */
-/*   Updated: 2022/07/14 17:06:45 by jpfuhl           ###   ########.fr       */
+/*   Updated: 2022/07/14 17:31:05 by jpfuhl           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ static void	check_tile(t_data *data, t_minimap *mini, int i, int j)
 		if (grid[x][y].vision)
 		{
 			colour = pick_colour();
-			draw_pixel(data->window->map, i, j, colour);
+			draw_pixel(data->window->minimap, i, j, colour);
 		}
 	}
 	else
-		draw_pixel(data->window->map, i, j, 0x18191a);
+		draw_pixel(data->window->minimap, i, j, 0x18191a);
 }
 
 static bool	check_limits(t_data *data, t_minimap *mini, int i, int j)
@@ -71,9 +71,9 @@ static bool	check_limits(t_data *data, t_minimap *mini, int i, int j)
 	limit_x = 1.0 * data->map->width;
 	limit_y = 1.0 * data->map->height;
 	if (mini->x_start < 0 || mini->y_start < 0)
-		draw_pixel(data->window->map, i, j, 0x0a0a0a);
+		draw_pixel(data->window->minimap, i, j, 0x0a0a0a);
 	else if (mini->x_start >= limit_x || mini->y_start >= limit_y)
-		draw_pixel(data->window->map, i, j, 0x0a0a0a);
+		draw_pixel(data->window->minimap, i, j, 0x0a0a0a);
 	else
 		return (false);
 	return (true);
